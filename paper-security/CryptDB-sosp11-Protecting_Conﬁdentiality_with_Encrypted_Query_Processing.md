@@ -23,7 +23,7 @@ One approach to reduce the damage caused by server compromises is to encrypt sen
 
 This paper presents CryptDB, a system that explores an intermediate design point to provide confidentiality for applications that use database management systems (DBMSes). CryptDB leverages the typical structure of database-backed applications, consisting of a DBMS server and a separate application server, as shown in Figure 1; the latter runs the application code and issues DBMS queries on behalf of one or more users. CryptDB’s approach is to *execute queries over encrypted data*, and the key insight that makes it practical is that SQL uses a well-defined set of operators, each of which we are able to support efficiently over encrypted data.
 
-![CryptDB’s architecture](cryptdb/CryptDB_Figure1.jpg)
+![CryptDB’s architecture](cryptdb/CryptDB-Figure1.jpg)
 
 CryptDB addresses two threats. The first threat is a curious database administrator (DBA) who tries to learn private data (e.g., health records, financial statements, personal information) by snooping on the DBMS server; here, CryptDB prevents the DBA from learning private data. The second threat is an adversary that gains complete control of application and DBMS servers. In this case, CryptDB cannot provide any guarantees for users that are logged into the application during an attack, but can still ensure the confidentiality of logged-out users’ data.
 
@@ -145,7 +145,7 @@ Once the proxy has transformed the query, it sends the query to the DBMS server,
 
 **Read query execution.**  To understand query execution over ciphertexts, consider the example schema shown in Figure 3. Initially, each column in the table is dressed in all onions of encryption, with RND, HOM, and SEARCH as outermost layers, as shown in Figure 2. At this point, the server can learn nothing about the data other than the number of columns, rows, and data size.
 
-![CryptDB’s architecture](cryptdb/CryptDB_Figure2.jpg)
+![CryptDB’s architecture](cryptdb/CryptDB-Figure2.jpg)
 
 To illustrate when onion layers are removed, consider the query:  
 SELECT *ID* FROM *Employees* WHERE *Name* = ‘Alice’,  
@@ -292,11 +292,11 @@ To evaluate the performance of CryptDB, we used a machine with two 2.4 GHz Intel
 #####8.4.1 TPC-C
 We compare the performance of a TPC-C query mix when running on an unmodified MySQL server versus on a CryptDB proxy in front of the MySQL server. We trained CryptDB on the query set (§3.5.2) so there are no onion adjustments during the TPC-C experiments. Figure 10 shows the throughput of TPC-C queries as the number of cores on the server varies from one to eight. In all cases, the server spends 100% of its CPU time processing queries. Both MySQL and CryptDB scale well initially, but start to level off due to internal lock contention in the MySQL server, as reported by SHOW STATUS LIKE ’Table%’. The overall throughput with CryptDB is 21–26% lower than MySQL, depending on the exact number of cores.
 
-![CryptDB’s architecture](cryptdb/CryptDB_Figure10.jpg)
+![CryptDB’s architecture](cryptdb/CryptDB-Figure10.jpg)
 
 To understand the sources of CryptDB’s overhead, we measure the server throughput for different types of SQL queries seen in TPC-C, on the same server, but running with only one core enabled. Figure 11 shows the results for MySQL, CryptDB, and a *strawman* design; the strawman performs each query over data encrypted with RND by decrypting the relevant data using a UDF, performing the query over the plaintext, and re-encrypting the result (if updating rows). The results show that CryptDB’s throughput penalty is greatest for queries that involve a SUM (2.0× less throughput) and for incrementing UPDATE statements (1.6× less throughput); these are the queries that involve HOM additions at the server. For the other types of queries, which form a larger part of the TPC-C mix, the throughput overhead is modest. The strawman design performs poorly for almost all queries because the DBMS’s indexes on the RND-encrypted data are useless for operations on the underlying plaintext data. It is pleasantly surprising that the higher security of CryptDB over the strawman also brings better performance.
 
-![CryptDB’s architecture](cryptdb/CryptDB_Figure11.jpg)
+![CryptDB’s architecture](cryptdb/CryptDB-Figure11.jpg)
 
 To understand the latency introduced by CryptDB’s proxy, we measure the server and proxy processing times for the same types of SQL queries as above. Figure 12 shows the results. We can see that there is an overall server latency increase of 20% with CryptDB, which we consider modest. The proxy adds an average of 0.60 ms to a query; of that time, 24% is spent in MySQL proxy, 23% is spent in encryption and decryption, and the remaining 53% is spent parsing and processing queries. The cryptographic overhead is relatively small because most of our encryption schemes are efficient; Figure 13 shows their performance. OPE and HOM are the slowest, but the ciphertext pre-computing and caching optimization (§3.5) masks the high latency of queries requiring OPE and HOM. Proxy* in Figure 12 shows the latency without these optimizations, which is significantly higher for the corresponding query types. SELECT queries that involve a SUM use HOM but do not benefit from this optimization, because the proxy performs decryption, rather than encryption.
 
