@@ -246,11 +246,11 @@ PRINCTYPE user, msg;
 ```
 Example table contents, without anonymized column names:
 
-Table *privmsgs* ||||
+Table *privmsgs* |_|_
 --------|--------|--------
 msgid   |subject |msgtext5       |xcc82fa |x37a21f
-Table *privmsgs_to* ||||--------|--------|--------￼￼msgid   |rcpt_id |sender_id5       |1       |2
-Table *users* |||
+Table *privmsgs_to* |_|_--------|--------|--------￼￼msgid   |rcpt_id |sender_id5       |1       |2
+Table *users* |_
 --------|--------userid  |username1 ￼ ￼ ￼    |‘Alice’ 2       |‘Bob’
 ***
 >**Figure4:** PartofphpBB’sschemawithannotationstosecureprivate messages. Only the sender and receiver may see the private message. An attacker that gains complete access to phpBB and the DBMS can access private messages of only currently active users.
@@ -331,7 +331,7 @@ In this section, we evaluate four aspects of CryptDB: the difficulty of modifyin
 
 We evaluate the effectiveness of our annotations and the needed application changes on the three applications we described in §5 (phpBB, HotCRP, and grad-apply), as well as on a TPC-C query mix (a standard workload in the database industry). We then analyze the functionality and security of CryptDB on three more applications, on TPC-C, and on a large trace of SQL queries. The additional three applications are OpenEMR, an electronic medical records application storing private medical data of patients; the web application of an MIT class (6.02), storing students’ grades; and PHP-calendar, storing people’s schedules. The large trace of SQL queries comes from a popular MySQL server at MIT, sql.mit.edu. This server is used primarily by web applications running on scripts.mit.edu, a shared web application hosting service operated by MIT’s Student Information Processing Board (SIPB). In addition, this SQL server is used by a number of applications that run on other machines and use sql.mit.edu only to store their data. Our query trace spans about ten days, and includes approximately 126 million queries. Figure 7 summarizes the schema statistics for sql.mit.edu; each database is likely to be a separate instance of some application.
 
- /              |**Databases**|**Tables**|**Columns**|
+_               |**Databases**|**Tables**|**Columns**
 ----------------|--------:    |--------: |--------:
 Complete schema |8,548        |177,154   |1,244,216
 Used in query   |1,193        |18,162    |128,840
@@ -384,9 +384,9 @@ To understand the sources of CryptDB’s overhead, we measure the server through
 
 To understand the latency introduced by CryptDB’s proxy, we measure the server and proxy processing times for the same types of SQL queries as above. Figure 12 shows the results. We can see that there is an overall server latency increase of 20% with CryptDB, which we consider modest. The proxy adds an average of 0.60 ms to a query; of that time, 24% is spent in MySQL proxy, 23% is spent in encryption and decryption, and the remaining 53% is spent parsing and processing queries. The cryptographic overhead is relatively small because most of our encryption schemes are efficient; Figure 13 shows their performance. OPE and HOM are the slowest, but the ciphertext pre-computing and caching optimization (§3.5) masks the high latency of queries requiring OPE and HOM. Proxy* in Figure 12 shows the latency without these optimizations, which is significantly higher for the corresponding query types. SELECT queries that involve a SUM use HOM but do not benefit from this optimization, because the proxy performs decryption, rather than encryption.
 
-![Server and proxy latency](cryptdb/CryptDB-Figure12.png)
+<img src="cryptdb/CryptDB-Figure12.png" alt="Server and proxy latency" width="600" />
 >Figure 12: Server and proxy latency for different types of SQL queries from TPC-C. For each query type, we show the predominant encryption scheme used at the server. Due to details of the TPC-C workload, each query type affects a different number of rows, and involves a different number of cryptographic operations. The left two columns correspond to server throughput, which is also shown in Figure 11. “Proxy” shows the latency added by CryptDB’s proxy; “Proxy*” shows the proxy latency without the ciphertext pre-computing and caching optimization (§3.5). Bold numbers show where pre-computing and caching ciphertexts helps. The “Overall” row is the average latency over the mix of TPC-C queries. “Update set” is an UPDATE where the fields are set to a constant, and“Update inc” is an UPDATE where some fields are incremented.
-![Microbenchmarks of cryptographic schemes](cryptdb/CryptDB-Figure13.png)>Figure 13: Microbenchmarks of cryptographic schemes, per unit of data encrypted (one 32-bit integer, 1 KB, or one 15-byte word of text), measured by taking the average time over many iterations.
+<img src="cryptdb/CryptDB-Figure13.png" alt="Microbenchmarks of cryptographic schemes" width="600" />>Figure 13: Microbenchmarks of cryptographic schemes, per unit of data encrypted (one 32-bit integer, 1 KB, or one 15-byte word of text), measured by taking the average time over many iterations.
 
 In all TPC-C experiments, the proxy used less than 20 MB of memory. Caching ciphertexts for the 30, 000 most common values for OPE accounts for about 3 MB, and pre-computing ciphertexts and randomness for 30,000 values at HOM required 10 MB.
 
