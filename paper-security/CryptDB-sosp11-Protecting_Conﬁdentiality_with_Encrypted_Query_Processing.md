@@ -135,12 +135,12 @@ where *K* is the appropriate key computed from Equation (1). At the same time, t
 
 Note that onion decryption is performed entirely by the DBMS server. In the steady state, no server-side decryptions are needed, because onion decryption happens only when a new class of computation is requested on a column. For example, after an equality check is requested on a column and the server brings the column to layer DET, the column remains in that state, and future queries with equality checks require no decryption. This property is the insight into why CryptDB’s overhead is modest in the steady state (see §8): the server mostly performs typical SQL processing.
 
-**_Employees_** |>
+**_Employees_** |_
 --------|--------
 *ID*    |*Name*
 23      |Alice
 
-**_Table1_** |>|>|>|>|>|>|>
+**_Table1_** |_|_|_|_|_|_|_
 ------- |-------  |--------  |-------   |-------  |-------- |--------  |--------
 *C1-IV* |*C1-Eq*  |*C1-Ord*  |*C1-Add*  |*C2-IV*  |*C2-Eq*  |*C2-Ord*  |*C2-Search*
 x27c3   |x2b82    |xcb94     |xc2e4     |x8a13    |xd1e3    |x7eb1     |x29b0
