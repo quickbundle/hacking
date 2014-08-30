@@ -411,7 +411,7 @@ CryptDB increases the amount of the data stored in the DBMS, because it stores m
 #####8.4.4 *Adjustable Encryption*
 Adjustable query-based encryption involves decrypting columns to lower-security onion levels. Fortunately, decryption for the more-secure onion layers, such as RND, is fast, and needs to be performed onlyoncepercolumnforthelifetimeofthesystem.[^2] Removing a layer of RND requires AES decryption, which our experimental machine can perform at ∼200 MB/s per core. Thus, removing an onion layer is bottlenecked by the speed at which the DBMS server can copy a column from disk for disk-bound databases.
 
-[^1]: Unless the administrator periodically re-encrypts data/columns.
+[^2]: Unless the administrator periodically re-encrypts data/columns.
 
 9 RELATED WORK
 --------
