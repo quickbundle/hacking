@@ -135,13 +135,17 @@ where *K* is the appropriate key computed from Equation (1). At the same time, t
 
 Note that onion decryption is performed entirely by the DBMS server. In the steady state, no server-side decryptions are needed, because onion decryption happens only when a new class of computation is requested on a column. For example, after an equality check is requested on a column and the server brings the column to layer DET, the column remains in that state, and future queries with equality checks require no decryption. This property is the insight into why CryptDB’s overhead is modest in the steady state (see §8): the server mostly performs typical SQL processing.
 
-Employees || Table1 ||||||||
---------|--------|--------|--------|--------|--------|--------|--------
-ID| Name | Center|Right
-23| Alice|Center|Right
+**_Employees_** |||
+--------|--------
+*ID*    |*Name*
+23      |Alice
 
- ID Name C1-IV C1-Eq C1-Ord C1-Add C2-IV C2-Eq C2-Ord C2-Search23 Alice x27c3 x2b82 xcb94 xc2e4 x8a13 xd1e3 x7eb1 x29b0
+**_Table1_** |||||||||
+------- |-------  |--------  |-------   |-------  |-------- |--------  |--------
+*C1-IV* |*C1-Eq*  |*C1-Ord*  |*C1-Add*  |*C2-IV*  |*C2-Eq*  |*C2-Ord*  |*C2-Search*
+x27c3   |x2b82    |xcb94     |xc2e4     |x8a13    |xd1e3    |x7eb1     |x29b0
 
+>Figure 3: Data layout at the server. When the application creates the table shown on the left, the table created at the DBMS server is the one shown on the right. Ciphertexts shown are not full-length.
 
 ####3.3 Executing over Encrypted Data
 Once the onion layers in the DBMS are at the layer necessary to execute a query, the proxy transforms the query to operate on these onions. In particular, the proxy replaces column names in a query with corresponding onion names, based on the class of computation performed on that column. For example, for the schema shown in Figure 3, a reference to the *Name* column for an equality comparison will be replaced with a reference to the C2-Eq column.
@@ -154,7 +158,7 @@ Once the proxy has transformed the query, it sends the query to the DBMS server,
 
 **Read query execution.**  To understand query execution over ciphertexts, consider the example schema shown in Figure 3. Initially, each column in the table is dressed in all onions of encryption, with RND, HOM, and SEARCH as outermost layers, as shown in Figure 2. At this point, the server can learn nothing about the data other than the number of columns, rows, and data size.
 
-![CryptDB’s architecture](cryptdb/CryptDB-Figure2.jpg =400x)
+<img src="cryptdb/CryptDB-Figure2.jpg" alt="Onion encryption layers and the classes of computation" width="400" />
 > **Figure 2:** Onion encryption layers and the classes of computation they allow. Onion names stand for the operations they allow at some of their layers (Equality, Order, Search, and Addition). In practice, some onions or onion layers may be omitted, depending on column types or schema annotations provided by application developers (§3.5.2). DET and JOIN are often merged into a single onion layer, since JOIN is a concatenation of DET and JOIN-ADJ (§3.4). A random IV for RND (§3.1), shared by the RND layers in *Eq* and *Ord*, is also stored for each data item.
 
 To illustrate when onion layers are removed, consider the query:  
@@ -229,6 +233,27 @@ Achieving these guarantees requires addressing two challenges. First, CryptDB mu
 An application developer annotates the schema using the three steps described below and illustrated in Figure 4. In all examples we show, italics indicate table and column names, and bold text indicates annotations added for CryptDB.
 *Step 1*. The developer must define the principal types (using PRINCTYPE) used in her application, such as users, groups, or messages. A principal is an instance of a principal type, e.g., principal 5 of type user. There are two classes of principals: external and internal. External principals correspond to end users who explicitly authenticate themselves to the application using a password. When a user logs into the application, the application must provide the user password to the proxy so that the user can get the privileges of her external principal. Privileges of other (internal) principals can be acquired only through delegation, as described in Step 3. When the user logs out, the application must inform the proxy, so that the proxy forgets the user’s password as well as any keys derived from the user’s password.*Step 2*. The developer must specify which columns in her SQL schema contain sensitive data, along with the principals that should have access to that data, using the ENC FOR annotation. CryptDB requires that for each private data item in a row, the name of the principal that should have access to that data be stored in another column in the same row. For example, in Figure 4, the decryption of *msgtext* x37a21f is available only to principal 5 of type msg.
 *Step 3*. Programmers can specify rules for how to delegate the privileges of one principal to other principals, using the speaks-for relation [49]. For example, in phpBB, a user should also have the privileges of the groups she belongs to. Since many applications store such information in tables, programmers can specify to CryptDB how to infer delegation rules from rows in an existing table. In particular, programmers can annotate a table *T* with (*a* x) SPEAKS FOR (*b* y). This annotation indicates that each row present in that table specifies that principal *a* of type x speaks for principal *b* of type y, meaning that *a* has access to all keys that *b* has access to. Here, x and y must always be fixed principal types. Principal *b* is always specified by the name of a column in table *T* . On the other hand, *a* can be either the name of another column in the same table, a constant, or *T2.col*, meaning *all* principals from column *col* of table *T2*. For example, in Figure 4, principal “Bob” of type physical user speaks for principal 2 of type user, and in Figure 6, all principals in the *contactId* column from table *PCMember* (of type contact) speak for the *paperId* principal of type review. Optionally, the programmer can specify a predicate, whose inputs are values in the same row, to specify a condition under which delegation should occur, such as excluding conflicts in Figure 6. §5 provides more examples of using annotations to secure applications.
+
+***
+```
+PRINCTYPE physical user EXTERNAL;  
+PRINCTYPE user, msg;
+CREATE TABLE privmsgs (    msgid int,    subject varchar(255) ENC_FOR (msgid msg),  
+  msgtext text ENC_FOR (msgid msg) );
+  CREATE TABLE privmsgs_to (    msgid int, rcpt_id int, sender_id int,    (sender_id user) SPEAKS_FOR (msgid msg),  
+  (rcpt_id user) SPEAKS_FOR (msgid msg) );
+CREATE TABLE users (    userid int, username varchar(255),    (username physical_user) SPEAKS_FOR (userid user) );  
+```
+Example table contents, without anonymized column names:
+
+Table *privmsgs* ||||
+--------|--------|--------
+msgid   |subject |msgtext5       |xcc82fa |x37a21f
+Table *privmsgs_to* ||||--------|--------|--------￼￼msgid   |rcpt_id |sender_id5       |1       |2
+Table *users* |||
+--------|--------userid  |username1 ￼ ￼ ￼    |‘Alice’ 2       |‘Bob’
+***
+>**Figure4:** PartofphpBB’sschemawithannotationstosecureprivate messages. Only the sender and receiver may see the private message. An attacker that gains complete access to phpBB and the DBMS can access private messages of only currently active users.
 ####4.2 Key Chaining
 Each principal (i.e., each instance of each principal type) is associated with a secret, randomly chosen key. If principal *B* speaks for principal *A* (as a result of some SPEAKS FOR annotation), then principal *A*’s key is encrypted using principal *B*’s key, and stored as a row in the special *access_keys* table in the database. This allows principal *B* to gain access to principal *A*’s key. For example, in Figure 4, to give users 1 and 2 access to message 5, the key of msg 5 is encrypted with the key of user 1, and also separately encrypted with the key of user 2.
 
@@ -252,9 +277,39 @@ In this section, we explain how CryptDB can be used to secure three existing mul
 
 **phpBB** is a widely used open source forum with a rich set of access control settings. Users are organized in groups; both users and groups have a variety of access permissions that the application administrator can choose. We already showed how to secure private messages between two users in phpBB in Figure 4. A more detailed case is securing access to posts, as shown in Figure 5. This example shows how to use predicates (e.g., IF *optionid*=...) to implement a conditional speaks-for relation on principals, and also how one column (*forumid*) can be used to represent multiple principals (of different type) with different privileges. There are more ways to gain access to a post, but we omit them here for brevity.
 
-**HotCRP** is a popular conference review application [27]. A key policy for HotCRP is that PC members cannot see who reviewed their own (or conflicted) papers. Figure 6 shows CryptDB annotations for HotCRP’s schema to enforce this policy. Today, HotCRP cannot prevent a curious or careless PC chair from logging into the database server and seeing who wrote each review for a paper that she is in conflict with. As a result, conferences often set up a second server to review the chair’s papers or use inconvenient out-of-band emails. With CryptDB, a PC chair cannot learn who wrote each review for her paper, even if she breaks into the application or database, since she does not have the decryption key.1 The reason is that the SQL predicate “NoConflict” checks if a PC member is conflicted with a paper and prevents the proxy from providing access to the PC chair in the key chain. (We assume the PC chair does not modify the application to log the passwords of other PC members to subvert the system.)
+```
+PRINCTYPE physical user EXTERNAL; 
+PRINCTYPE user, group, forum_post, forum_name;
+CREATE TABLE users (
+  userid int, username varchar(255),
+  (username physical_user) SPEAKS_FOR (userid user) );CREATE TABLE usergroup (
+  userid int, groupid int, 
+  (userid user) SPEAKS_FOR (groupid group) );
+CREATE TABLE aclgroups ( 
+  groupid int, forumid int, optionid int, 
+  (groupid group) SPEAKS_FOR (forumid forum_post) IF optionid=20,  (groupid group) SPEAKS_FOR (forumid forum_name) IF optionid=14);CREATE TABLE posts (
+  postid int, forumid int,  post text ENC_FOR (forumid forum_post) );CREATE TABLE forum ( 
+  forumid int,  name varchar(255) ENC_FOR (forumid forum_name) );
+```
+>Figure 5: Annotated schema for securing access to posts in phpBB. A user has access to see the content of posts in a forum if any of the groups that the user is part of has such permissions, indicated by *optionid* 20 in the *aclgroups* table for the corresponding *forumid* and *groupid*. Similarly, *optionid* 14 enables users to see the forum’s name.
+
+**HotCRP** is a popular conference review application [27]. A key policy for HotCRP is that PC members cannot see who reviewed their own (or conflicted) papers. Figure 6 shows CryptDB annotations for HotCRP’s schema to enforce this policy. Today, HotCRP cannot prevent a curious or careless PC chair from logging into the database server and seeing who wrote each review for a paper that she is in conflict with. As a result, conferences often set up a second server to review the chair’s papers or use inconvenient out-of-band emails. With CryptDB, a PC chair cannot learn who wrote each review for her paper, even if she breaks into the application or database, since she does not have the decryption key.[^1] The reason is that the SQL predicate “NoConflict” checks if a PC member is conflicted with a paper and prevents the proxy from providing access to the PC chair in the key chain. (We assume the PC chair does not modify the application to log the passwords of other PC members to subvert the system.)
+
+[^1]: Fully implementing this policy would require setting up two PC chairs: a main chair, and a backup chair responsible for reviews of the main chair’s papers. HotCRP allows the PC chair to impersonate other PC members, so CryptDB annotations would be used to prevent the main chair from gaining access to keys of reviewers assigned to her paper.
 
 **grad-apply** is a graduate admissions system used by MIT EECS. We annotated its schema to allow an applicant’s folder to be accessed only by the respective applicant and any faculty using (*reviewers.reviewer_id reviewer*), meaning all reviewers, SPEAKS FOR (*candidate_id* candidate) in table candidates, and ... SPEAKS_FOR (*letter_id* letter) in table *letters*. The applicant can see all of her folder data except for letters of recommendation. Overall, grad-apply has simple access control and therefore simple annotations.
+
+```
+PRINCTYPE physical_user EXTERNAL; 
+PRINCTYPE contact, review;CREATE TABLE ContactInfo (
+  contactId int, email varchar(120), 
+  (email physical user) SPEAKS_FOR (contactId contact) );CREATE TABLE PCMember ( contactId int );CREATE TABLE PaperConflict ( paperId int, contactId int ); 
+CREATE TABLE PaperReview (  paperId int,  reviewerId int ENC_FOR(paperIdreview),
+  commentsToPC text ENC_FOR (paperId review), 
+  (PCMember.contactId contact) SPEAKS_FOR (paperId review) IF NoConflict(paperId, contactId) );NoConflict (paperId, contactId): /* Define a SQL function */
+  (SELECT COUNT(*) FROM PaperConflict c WHERE    c.paperId = paperId AND c.contactId = contactId) = 0;
+```
+>Figure 6: Annotated schema for securing reviews in HotCRP. Reviews and the identity of reviewers providing the review will be available only to PC members (table *PCMember* includes PC chairs) who are not conflicted, and PC chairs cannot override this restriction.
 
 6 DISCUSSION
 --------
@@ -276,6 +331,13 @@ In this section, we evaluate four aspects of CryptDB: the difficulty of modifyin
 
 We evaluate the effectiveness of our annotations and the needed application changes on the three applications we described in §5 (phpBB, HotCRP, and grad-apply), as well as on a TPC-C query mix (a standard workload in the database industry). We then analyze the functionality and security of CryptDB on three more applications, on TPC-C, and on a large trace of SQL queries. The additional three applications are OpenEMR, an electronic medical records application storing private medical data of patients; the web application of an MIT class (6.02), storing students’ grades; and PHP-calendar, storing people’s schedules. The large trace of SQL queries comes from a popular MySQL server at MIT, sql.mit.edu. This server is used primarily by web applications running on scripts.mit.edu, a shared web application hosting service operated by MIT’s Student Information Processing Board (SIPB). In addition, this SQL server is used by a number of applications that run on other machines and use sql.mit.edu only to store their data. Our query trace spans about ten days, and includes approximately 126 million queries. Figure 7 summarizes the schema statistics for sql.mit.edu; each database is likely to be a separate instance of some application.
 
+ /              |**Databases**|**Tables**|**Columns**|
+----------------|--------:    |--------: |--------:
+Complete schema |8,548        |177,154   |1,244,216
+Used in query   |1,193        |18,162    |128,840
+
+>Figure 7: Number of databases, tables, and columns on the sql.mit.edu MySQL server, used for trace analysis, indicating the total size of the schema, and the part of the schema seen in queries during the trace period.
+
 Finally, we evaluate the overall performance of CryptDB on the phpBB application and on a query mix from TPC-C, and perform a detailed analysis through microbenchmarks.
 
 In the six applications (not counting TPC-C), we only encrypt sensitive columns, according to a manual inspection. Some fields were clearly sensitive (e.g., grades, private message, medical information), but others were only marginally so (e.g., the time when a message was posted). There was no clear threshold between sensitive or not, but it was clear to us which fields were definitely sensitive. In the case of TPC-C, we encrypt all the columns in the database in single-principal mode so that we can study the performance and functionality of a fully encrypted DBMS. All fields are considered for encryption in the large query trace as well.
@@ -283,8 +345,18 @@ In the six applications (not counting TPC-C), we only encrypt sensitive columns,
 ####8.1 Application Changes
 Figure 8 summarizes the amount of programmer effort required to use CryptDB in three multi-user web applications and in the single-principal TPC-C queries. The results show that, for multi-principal mode, CryptDB required between 11 and 13 unique schema annotations (29 to 111 in total), and 2 to 7 lines of code changes to provide user passwords to the proxy, in order to secure sensitive information stored in the database. Part of the simplicity is because securing an additional column requires just one annotation in most cases. For the single-principal TPC-C queries, using CryptDB required no application annotations at all.
 
+Application     |Annotations    |Login/logout|Sensitive fields secured, and examples of such fields
+----------------|---------------|--------    |----------------
+phpBB ￼ ￼ ￼        |31 (11 unique) |7 lines     |23: private messages (content, subject), posts, forums
+HotCRP          |29 (12 unique) |2 lines     |22: paper content and paper information, reviewsgrad-apply      |111 (13 unique)|2 lines     |103: student grades (61),scores (17),recommendations,reviews
+TPC-C (single princ.)|0         |0           |92: all the fields in all the tables encrypted
+>Figure 8: Number of annotations the programmer needs to add to secure sensitive fields, lines of code to be added to provide CryptDB with the passwords of users, and the number of sensitive fields that CryptDB secures with these annotations, for three different applications. We count as one annotation each invocation of our three types of annotations and any SQL predicate used in a SPEAKS FOR annotation. Since multiple fields in the same table are usually encrypted for the same principal (e.g., message subject and content), we also report unique annotations.
+
 ####8.2 Functional Evaluation
 To evaluate what columns, operations, and queries CryptDB can support, we analyzed the queries issued by six web applications (including the three applications we analyzed in §8.1), the TPC-C queries, and the SQL queries from sql.mit.edu. The results are shown in the left half of Figure 9.
+
+![the MinEnc onion level for a range of applications and query traces](cryptdb/CryptDB-Figure9.png)
+>Figure 9: Steady-state onion levels for database columns required by a range of applications and traces. “Needs plaintext” indicates that CryptDB cannot execute the application’s queries over encrypted data for that column. For the applications in the top group of rows, sensitive columns were determined manually, and only these columns were considered for encryption. For the bottom group of rows, all database columns were automatically considered for encryption. The rightmost column considers the application’s most sensitive database columns, and reports the number of them that have MinEnc in HIGH (both terms are defined in §8.3).
 
 CryptDB supports most queries; the number of columns in the “needs plaintext” column, which counts columns that cannot be processed in encrypted form by CryptDB, is small relative to the total number of columns. For PHP-calendar and OpenEMR, CryptDB does not support queries on certain sensitive fields that perform string manipulation (e.g., substring and lowercase conversions) or date manipulation (e.g., obtaining the day, month, or year of an encrypted date). However, if these functions were precomputed with the result added as standalone columns (e.g., each of the three parts of a date were encrypted separately), CryptDB would support these queries.
 The next two columns, “needs HOM” and “needs SEARCH”, reflect the number of columns for which that encryption scheme is needed to process some queries. The numbers suggest that these encryption schemes are important; without these schemes, CryptDB would be unable to support those queries.Based on an analysis of the larger sql.mit.edu trace, we found that CryptDB should be able to support operations over all but 1,094 of the 128,840 columns observed in the trace. The “in-proxy processing” shows analysis results where we assumed the proxy can perform some lightweight operations on the results returned from the DBMS server. Specifically, this included any operations that are not needed to compute the set of resulting rows or to aggregate rows (that is, expressions that do not appear in a WHERE, HAVING, or GROUP BY clause, or in an ORDER BY clause with a LIMIT, and are not aggregate operators). With in-proxy processing, CryptDB should be able to process queries over encrypted data over all but 571 of the 128,840 columns, thus supporting 99.5% of the columns.
@@ -302,15 +374,19 @@ To evaluate the performance of CryptDB, we used a machine with two 2.4 GHz Intel
 #####8.4.1 TPC-C
 We compare the performance of a TPC-C query mix when running on an unmodified MySQL server versus on a CryptDB proxy in front of the MySQL server. We trained CryptDB on the query set (§3.5.2) so there are no onion adjustments during the TPC-C experiments. Figure 10 shows the throughput of TPC-C queries as the number of cores on the server varies from one to eight. In all cases, the server spends 100% of its CPU time processing queries. Both MySQL and CryptDB scale well initially, but start to level off due to internal lock contention in the MySQL server, as reported by SHOW STATUS LIKE ’Table%’. The overall throughput with CryptDB is 21–26% lower than MySQL, depending on the exact number of cores.
 
-![CryptDB’s architecture](cryptdb/CryptDB-Figure10.jpg =400x)
+<img src="cryptdb/CryptDB-Figure10.jpg" alt="Throughput for TPC-C queries" width="400" />
 > **Figure 10:** Throughput for TPC-C queries, for a varying number of cores on the underlying MySQL DBMS server.
 
 To understand the sources of CryptDB’s overhead, we measure the server throughput for different types of SQL queries seen in TPC-C, on the same server, but running with only one core enabled. Figure 11 shows the results for MySQL, CryptDB, and a *strawman* design; the strawman performs each query over data encrypted with RND by decrypting the relevant data using a UDF, performing the query over the plaintext, and re-encrypting the result (if updating rows). The results show that CryptDB’s throughput penalty is greatest for queries that involve a SUM (2.0× less throughput) and for incrementing UPDATE statements (1.6× less throughput); these are the queries that involve HOM additions at the server. For the other types of queries, which form a larger part of the TPC-C mix, the throughput overhead is modest. The strawman design performs poorly for almost all queries because the DBMS’s indexes on the RND-encrypted data are useless for operations on the underlying plaintext data. It is pleasantly surprising that the higher security of CryptDB over the strawman also brings better performance.
 
-![CryptDB’s architecture](cryptdb/CryptDB-Figure11.jpg =400x)
+<img src="cryptdb/CryptDB-Figure11.jpg" alt="Throughput of different types of SQL queries" width="400" />
 > **Figure 11:** Throughput of different types of SQL queries from the TPC- C query mix running under MySQL, CryptDB, and the strawman design. “Upd. inc” stands for UPDATE that increments a column, and “Upd. set” stands for UPDATE which sets columns to a constant.
 
 To understand the latency introduced by CryptDB’s proxy, we measure the server and proxy processing times for the same types of SQL queries as above. Figure 12 shows the results. We can see that there is an overall server latency increase of 20% with CryptDB, which we consider modest. The proxy adds an average of 0.60 ms to a query; of that time, 24% is spent in MySQL proxy, 23% is spent in encryption and decryption, and the remaining 53% is spent parsing and processing queries. The cryptographic overhead is relatively small because most of our encryption schemes are efficient; Figure 13 shows their performance. OPE and HOM are the slowest, but the ciphertext pre-computing and caching optimization (§3.5) masks the high latency of queries requiring OPE and HOM. Proxy* in Figure 12 shows the latency without these optimizations, which is significantly higher for the corresponding query types. SELECT queries that involve a SUM use HOM but do not benefit from this optimization, because the proxy performs decryption, rather than encryption.
+
+![Server and proxy latency](cryptdb/CryptDB-Figure12.png)
+>Figure 12: Server and proxy latency for different types of SQL queries from TPC-C. For each query type, we show the predominant encryption scheme used at the server. Due to details of the TPC-C workload, each query type affects a different number of rows, and involves a different number of cryptographic operations. The left two columns correspond to server throughput, which is also shown in Figure 11. “Proxy” shows the latency added by CryptDB’s proxy; “Proxy*” shows the proxy latency without the ciphertext pre-computing and caching optimization (§3.5). Bold numbers show where pre-computing and caching ciphertexts helps. The “Overall” row is the average latency over the mix of TPC-C queries. “Update set” is an UPDATE where the fields are set to a constant, and“Update inc” is an UPDATE where some fields are incremented.
+![Microbenchmarks of cryptographic schemes](cryptdb/CryptDB-Figure13.png)>Figure 13: Microbenchmarks of cryptographic schemes, per unit of data encrypted (one 32-bit integer, 1 KB, or one 15-byte word of text), measured by taking the average time over many iterations.
 
 In all TPC-C experiments, the proxy used less than 20 MB of memory. Caching ciphertexts for the 30, 000 most common values for OPE accounts for about 3 MB, and pre-computing ciphertexts and randomness for 30,000 values at HOM required 10 MB.
 
@@ -319,14 +395,23 @@ To evaluate the impact of CryptDB on application performance, we measure the thr
 
 Figure 14 shows the throughput of phpBB in three different configurations: (1) connecting to a stock MySQL server, (2) connecting to a stock MySQL server through MySQL proxy, and (3) connecting to CryptDB, with notably sensitive fields encrypted as summarized in Figure 9, which in turn uses a stock MySQL server to store encrypted data. The results show that phpBB incurs an overall throughput loss of just 14.5%, and that about half of this loss comes from inefficiencies in MySQL proxy unrelated to CryptDB. Figure 15 further shows the end-to-end latency for five types of phpBB requests. The results show that CryptDB adds 7–18 ms (6–20%) of processing time per request.
 
-![CryptDB’s architecture](cryptdb/CryptDB-Figure14.jpg =400x)
+<img src="cryptdb/CryptDB-Figure14.jpg" alt="Throughputut comparison for phpBB" width="400" />
 > **Figure 14:** Throughput comparison for phpBB. “MySQL” denotes phpBB running directly on MySQL. “MySQL+proxy” denotes phpBB running on an unencrypted MySQL database but going through MySQL proxy. “CryptDB” denotes phpBB running on CryptDB with notably sensitive fields annotated and the database appropriately encrypted. Most HTTP requests involved tens of SQL queries each. Percentages indicate throughput reduction relative to MySQL.
+
+DB      |Login   |R post  |W post  |R msg   |W msg
+--------|--------|--------|--------|--------|--------
+MySQL ￼ ￼ ￼|60 ms   |50 ms   |133 ms  |61 ms   |237 ms
+CryptDB |67 ms   |60 ms   |151 ms  |73 ms   |251 ms
+
+>Figure 15: Latency for HTTP requests that heavily use encrypted fields in phpBB for MySQL and CryptDB. R and W stand for read and write.
 
 #####8.4.3 *Storage*
 CryptDB increases the amount of the data stored in the DBMS, because it stores multiple onions for the same field, and because ciphertexts are larger than plaintexts for some encryption schemes. For TPC-C, CryptDB increased the database size by 3.76×, mostly due to cryptographic expansion of integer fields encrypted with HOM (which expand from 32 bits to 2048 bits); strings and binary data remains roughly the same size. For phpBB, the database size using an unencrypted system was 2.6 MB for a workload of about 1,000 private messages and 1,000 forum posts generated by 10 users. The same workload on CryptDB had a database of 3.3 MB, about 1.2× larger. Of the 0.7 MB increase, 230 KB is for storage of *access_keys*, 276 KB is for *public_keys* and *external_keys*, and 166 KB is due to expansion of encrypted fields.
 
 #####8.4.4 *Adjustable Encryption*
-Adjustable query-based encryption involves decrypting columns to lower-security onion levels. Fortunately, decryption for the more-secure onion layers, such as RND, is fast, and needs to be performed onlyoncepercolumnforthelifetimeofthesystem.2 Removing a layer of RND requires AES decryption, which our experimental machine can perform at ∼200 MB/s per core. Thus, removing an onion layer is bottlenecked by the speed at which the DBMS server can copy a column from disk for disk-bound databases.
+Adjustable query-based encryption involves decrypting columns to lower-security onion levels. Fortunately, decryption for the more-secure onion layers, such as RND, is fast, and needs to be performed onlyoncepercolumnforthelifetimeofthesystem.[^2] Removing a layer of RND requires AES decryption, which our experimental machine can perform at ∼200 MB/s per core. Thus, removing an onion layer is bottlenecked by the speed at which the DBMS server can copy a column from disk for disk-bound databases.
+
+[^1]: Unless the administrator periodically re-encrypts data/columns.
 
 9 RELATED WORK
 --------
