@@ -127,13 +127,15 @@ Our idea is to encrypt each data item in one or more *onions*: that is, each val
 Multiple onions are needed in practice, both because the computations supported by different encryption schemes are not always strictly ordered, and because of performance considerations (size of ciphertext and encryption time for nested onion layers). Depending on the type of the data (and any annotations provided by the application developer on the database schema, as discussed in §3.5.2), CryptDB may not maintain all onions for each column. For instance, the *Search* onion does not make sense for integers, and the *Add* onion does not make sense for strings.
 
 For each layer of each onion, the proxy uses the same key for encrypting values in the same column, and different keys across tables, columns, onions, and onion layers. Using the same key for all values in a column allows the proxy to perform operations on a column without having to compute separate keys for each row that will be manipulated. (We use finer-grained encryption keys in §4 to reduce the potential amount of data disclosure in case of an application or proxy server compromise.) Using different keys across columns prevents the server from learning any additional relations. All of these keys are derived from the master key *MK*. For example, for table *t*, column *c*, onion *o*, and encryption layer *l*, the proxy uses the key  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *K*<sub>*t,c,o,l*</sub> = PRP<sub>*MK*</sub>(table *t*, column *c*, onion *o*, layer *l*),    (1)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *K*<sub>*t,c,o,l*</sub> = PRP<sub>*MK*</sub>(table *t*, column *c*, onion *o*, layer *l*), (1)  
 where PRP is a pseudorandom permutation (e.g., AES).
 
 Each onion starts out encrypted with the most secure encryption scheme (RND for onions *Eq* and *Ord*, HOM for onion *Add*, and SEARCH for onion *Search*). As the proxy receives SQL queries from the application, it determines whether layers of encryption need to be removed. Given a predicate *P* on column *c* needed to execute a query on the server, the proxy first establishes what onion layer is needed to compute *P* on *c*. If the encryption of c is not already at an onion layer that allows *P*, the proxy strips off the onion layers to allow *P* on *c*, by sending the corresponding onion key to the server. The proxy never decrypts the data past the least-secure encryption onion layer (or past some other threshold layer, if specified by the application developer in the schema, §3.5.1).
 
-CryptDB implements onion layer decryption using UDFs that run on the DBMS server. For example, in Figure 3, to decrypt onion Ord of column 2 in table 1 to layer OPE, the proxy issues the following query to the server using the DECRYPT RND UDF:  
+CryptDB implements onion layer decryption using UDFs that run on the DBMS server. For example, in Figure 3, to decrypt onion *Ord* of column 2 in table 1 to layer OPE, the proxy issues the following query to the server using the DECRYPT RND UDF:  
+
 UPDATE *Table1* SET *C2-Ord* = DECRYPT RND(K, *C2-Ord*, *C2-IV*)  
+
 where *K* is the appropriate key computed from Equation (1). At the same time, the proxy updates its own internal state to remember that column *C2-Ord* in *Table1* is now at layer OPE in the DBMS. Each column decryption should be included in a transaction to avoid consistency problems with clients accessing columns being adjusted.
 
 Note that onion decryption is performed entirely by the DBMS server. In the steady state, no server-side decryptions are needed, because onion decryption happens only when a new class of computation is requested on a column. For example, after an equality check is requested on a column and the server brings the column to layer DET, the column remains in that state, and future queries with equality checks require no decryption. This property is the insight into why CryptDB’s overhead is modest in the steady state (see §8): the server mostly performs typical SQL processing.
@@ -162,11 +164,17 @@ Once the proxy has transformed the query, it sends the query to the DBMS server,
 **Read query execution.**  To understand query execution over ciphertexts, consider the example schema shown in Figure 3. Initially, each column in the table is dressed in all onions of encryption, with RND, HOM, and SEARCH as outermost layers, as shown in Figure 2. At this point, the server can learn nothing about the data other than the number of columns, rows, and data size.
 
 To illustrate when onion layers are removed, consider the query:  
+
 SELECT *ID* FROM *Employees* WHERE *Name* = ‘Alice’,  
+
 which requires lowering the encryption of *Name* to layer DET. Toexecute this query, the proxy first issues the query  
+
 UPDATE *Table1* SET *C2-Eq* = DECRYPT RND(*K<sub>T1,C2,Eq,RND</sub>*, C2-Eq, C2-IV),  
+
 where column C2 corresponds to *Name*. The proxy then issues  
+
 SELECT *C1-Eq*, *C1-IV* FROM *Table1* WHERE *C2-Eq* = x7..d,  
+
 where column *C1* corresponds to *ID*, and where x7..d is the *Eq* onion encryption of “Alice” with keys *K*<sub>*T1,C2,Eq*,JOIN</sub> and *K*<sub>*T1,C2,Eq*,DET</sub> (see Figure 2). Note that the proxy must request the random IV from column C1-IV in order to decrypt the RND ciphertext from C1-Eq. Finally, the proxy decrypts the results from the server using keys *K*<sub>*T1,C1,Eq*,RND</sub>, *K*<sub>*T1,C1,Eq*,DET</sub>, and *K*<sub>*T1,C1,Eq*,JOIN</sub>, obtains the result 23, and returns it to the application.
 
 If the next query is SELECT COUNT(\*) FROM *Employees* WHERE *Name* = ‘Bob’, no server-side decryptions are necessary, and the proxy directly issues the query SELECT COUNT(\*) FROM *Table1* WHERE *C2-Eq* = xbb..4a,wherexbb..4aistheEqonion encryption of “Bob” using *K*<sub>*T1,C2,Eq*,JOIN</sub> and *K*<sub>*T1,C2,Eq*,DET</sub>.
@@ -192,11 +200,15 @@ JOIN-ADJ is non-invertible, so we define the JOIN encryption scheme as JOIN(*v*)
 
 Each column is initially encrypted at the JOIN layer using a different key, thus preventing any joins between columns. When a query requests a join, the proxy gives the DBMS server an onion key to adjust the JOIN-ADJ values in one of the two columns, so that it matches the JOIN-ADJ key of the other column (denoted the *join-base* column). After the adjustment, the columns share the same JOIN-ADJ key, allowing the DBMS server to join them for equality. The DET components of JOIN remain encrypted with different keys.Note that our adjustable join is transitive: if the user joins columns *A* and *B* and then joins columns *B* and *C*, the server can join *A* and *C*. However, the server cannot join columns in different “transitivity groups”. For instance, if columns *D* and *E* were joined together, the DBMS server would not be able to join columns *A* and *D* on its own.After an initial join query, the JOIN-ADJ values remain transformed with the same key, so no re-adjustments are needed for subsequent join queries between the same two columns. One exception is if the application issues another query, joining one of the adjusted columns with a third column, which causes the proxy to readjust the column to another join-base. To avoid oscillations and to converge to a state where all columns in a transitivity group share the same join-base, CryptDB chooses the first column in lexicographic order on table and column name as the join-base. For n columns, the overall maximum number of join transitions is n(n − 1)/2.
 For range joins, a similar dynamic re-adjustment scheme is difficult to construct due to lack of structure in OPE schemes. Instead, CryptDB requires that pairs of columns that will be involved in such joins be declared by the application ahead of time, so that matching keys are used for layer OPE-JOIN of those columns; otherwise, the same key will be used for all columns at layer OPE-JOIN. Fortunately, range joins are rare; they are not used in any of our example applications, and are used in only 50 out of 128,840 columns in a large SQL query trace we describe in §8, corresponding to just three distinct applications.
-JOIN-ADJ construction. Our algorithm uses elliptic-curve cryptography (ECC). JOIN-ADJK (*v*) is computed as  
-JOIN-ADJ<sub>*K*</sub>(*v*) := P<sup>*K*·PRF<sub>K0</sub>(*v*)</sup>, (2)  
+**JOIN-ADJ construction.** Our algorithm uses elliptic-curve cryptography (ECC). JOIN-ADJK (*v*) is computed as  
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; JOIN-ADJ<sub>*K*</sub>(*v*) := P<sup>*K*·PRF<sub>K0</sub>(*v*)</sup>, (2)  
+
 where *K* is the initial key for that table, column, onion, and layer, *P* is a point on an elliptic curve (being a public parameter), and PRF<sub>*K*<sub>0</sub></sub> is a pseudo-random function [20] mapping values to a pseudorandom number, such as AES<sub>*K*<sub>0</sub></sub> (SHA(*v*)), with *K*<sub>0</sub> being a key that is the same for all columns and derived from *MK*. The “exponentiation” is in fact repeated geometric addition of elliptic curve points; it is considerably faster than RSA exponentiation.
 When a query joins columns *c* and *c*‘, each having keys *K* and *K*’ at the join layer, the proxy computes ∆*K* = *K*/*K*‘ (in an appropriate group) and sends it to the server. Then, given JOIN-ADJ<sub>*K*‘</sub> (v) (the JOIN-ADJ values from column *c*’) and ∆K, the DBMS server uses a UDF to adjust the key in c‘ by computing:  
-(JOIN-ADJ<sub>*K*‘</sub>(*v*))<sup>∆*K*</sup> = P<sup>*K*‘·PRF<sub>K<sub>0</sub></sub> (v)·(K/K‘)</sup> = P<sup>*K*·PRF<sub>K0</sub>(*v*)</sub> = JOIN-ADJ<sub>*K*</sub>(*v*).  
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (JOIN-ADJ<sub>*K*‘</sub>(*v*))<sup>∆*K*</sup> = P<sup>*K*‘·PRF<sub>K<sub>0</sub></sub> (v)·(K/K‘)</sup> = P<sup>*K*·PRF<sub>K0</sub>(*v*)</sub> = JOIN-ADJ<sub>*K*</sub>(*v*).  
+
 Now columns *c* and *c*‘ share the same JOIN-ADJ key, and the DBMS server can perform an equi-join on *c* and *c*‘ by taking the JOIN-ADJ component of the JOIN onion ciphertext.
 
 At a high level, the security of this scheme is that the server cannot infer join relations among groups of columns that were not requested by legitimate join queries, and that the scheme does not reveal the plaintext. We proved the security of this scheme based on the standard Elliptic-Curve Decisional Diffie-Hellman hardness assumption, and implemented it using a NIST-approved elliptic curve. We plan to publish a more detailed description of this algorithm and the proof on our web site [37].
