@@ -1,5 +1,5 @@
-**Paper source:**  <http://web.mit.edu/ralucap/www/CryptDB-sosp11.pdf>  
-> **Copyright:**  Permission to make digital or hard copies of part or all of this work for personal or classroom use is granted without fee provided that copies are not made or distributed for profit or commercial advantage and that copies bear this notice and the full citation on the first page. Copyrights for components of this work owned by others than ACM must be honored. Abstracting with credit is permitted. To copy otherwise, to republish, to post on servers or to redistribute to lists, requires prior specific permission and/or a fee.SOSP ’11, October 23–26, 2011, Cascais, Portugal. Copyright 2011 ACM 978-1-4503-0977-6/11/10 . . . $10.00.
+**论文来源:**  <http://web.mit.edu/ralucap/www/CryptDB-sosp11.pdf>  
+> **版权声明:**  Permission to make digital or hard copies of part or all of this work for personal or classroom use is granted without fee provided that copies are not made or distributed for profit or commercial advantage and that copies bear this notice and the full citation on the first page. Copyrights for components of this work owned by others than ACM must be honored. Abstracting with credit is permitted. To copy otherwise, to republish, to post on servers or to redistribute to lists, requires prior specific permission and/or a fee.SOSP ’11, October 23–26, 2011, Cascais, Portugal. Copyright 2011 ACM 978-1-4503-0977-6/11/10 . . . $10.00.
 
 CryptDB: Protecting Confidentiality with Encrypted Query Processing 基于加密查询处理的数据防护
 ========
