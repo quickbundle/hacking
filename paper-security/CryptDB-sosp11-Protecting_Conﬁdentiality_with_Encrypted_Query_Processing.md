@@ -132,9 +132,9 @@ where PRP is a pseudorandom permutation (e.g., AES).
 
 Each onion starts out encrypted with the most secure encryption scheme (RND for onions *Eq* and *Ord*, HOM for onion *Add*, and SEARCH for onion *Search*). As the proxy receives SQL queries from the application, it determines whether layers of encryption need to be removed. Given a predicate *P* on column *c* needed to execute a query on the server, the proxy first establishes what onion layer is needed to compute *P* on *c*. If the encryption of c is not already at an onion layer that allows *P*, the proxy strips off the onion layers to allow *P* on *c*, by sending the corresponding onion key to the server. The proxy never decrypts the data past the least-secure encryption onion layer (or past some other threshold layer, if specified by the application developer in the schema, §3.5.1).
 
-CryptDB implements onion layer decryption using UDFs that run on the DBMS server. For example, in Figure 3, to decrypt onion *Ord* of column 2 in table 1 to layer OPE, the proxy issues the following query to the server using the DECRYPT RND UDF:  
+CryptDB implements onion layer decryption using UDFs that run on the DBMS server. For example, in Figure 3, to decrypt onion *Ord* of column 2 in table 1 to layer OPE, the proxy issues the following query to the server using the DECRYPT_RND UDF:  
 
-UPDATE *Table1* SET *C2-Ord* = DECRYPT RND(K, *C2-Ord*, *C2-IV*)  
+UPDATE *Table1* SET *C2-Ord* = DECRYPT_RND(K, *C2-Ord*, *C2-IV*)  
 
 where *K* is the appropriate key computed from Equation (1). At the same time, the proxy updates its own internal state to remember that column *C2-Ord* in *Table1* is now at layer OPE in the DBMS. Each column decryption should be included in a transaction to avoid consistency problems with clients accessing columns being adjusted.
 
@@ -153,9 +153,9 @@ x27c3   |x2b82    |xcb94     |xc2e4     |x8a13    |xd1e3    |x7eb1     |x29b0
 >Figure 3: Data layout at the server. When the application creates the table shown on the left, the table created at the DBMS server is the one shown on the right. Ciphertexts shown are not full-length.
 
 ####3.3 Executing over Encrypted Data
-Once the onion layers in the DBMS are at the layer necessary to execute a query, the proxy transforms the query to operate on these onions. In particular, the proxy replaces column names in a query with corresponding onion names, based on the class of computation performed on that column. For example, for the schema shown in Figure 3, a reference to the *Name* column for an equality comparison will be replaced with a reference to the C2-Eq column.
+Once the onion layers in the DBMS are at the layer necessary to execute a query, the proxy transforms the query to operate on these onions. In particular, the proxy replaces column names in a query with corresponding onion names, based on the class of computation performed on that column. For example, for the schema shown in Figure 3, a reference to the *Name* column for an equality comparison will be replaced with a reference to the *C2-Eq* column.
 
-The proxy also replaces each constant in the query with a corresponding onion encryption of that constant, based on the computation in which it is used. For instance, if a query contains WHERE Name = ‘Alice’, the proxy encrypts ‘Alice’ by successively applying all encryption layers corresponding to onion Eq that have not yet been removed from C2-Eq.
+The proxy also replaces each constant in the query with a corresponding onion encryption of that constant, based on the computation in which it is used. For instance, if a query contains WHERE Name = ‘Alice’, the proxy encrypts ‘Alice’ by successively applying all encryption layers corresponding to onion Eq that have not yet been removed from *C2-Eq*.
 
 Finally, the server replaces certain operators with UDF-based counterparts. For instance, the SUM aggregate operator and the + column-addition operator must be replaced with an invocation of a UDF that performs HOM addition of ciphertexts. Equality and order operators (such as = and <) do not need such replacement and can be applied directly to the DET and OPE ciphertexts.
 
@@ -169,7 +169,7 @@ SELECT *ID* FROM *Employees* WHERE *Name* = ‘Alice’,
 
 which requires lowering the encryption of *Name* to layer DET. Toexecute this query, the proxy first issues the query  
 
-UPDATE *Table1* SET *C2-Eq* = DECRYPT RND(*K<sub>T1,C2,Eq,RND</sub>*, C2-Eq, C2-IV),  
+UPDATE *Table1* SET *C2-Eq* = DECRYPT_RND(*K<sub>T1,C2,Eq,RND</sub>*, *C2-Eq*, *C2-IV*),  
 
 where column C2 corresponds to *Name*. The proxy then issues  
 
@@ -177,7 +177,7 @@ SELECT *C1-Eq*, *C1-IV* FROM *Table1* WHERE *C2-Eq* = x7..d,
 
 where column *C1* corresponds to *ID*, and where x7..d is the *Eq* onion encryption of “Alice” with keys *K*<sub>*T1,C2,Eq*,JOIN</sub> and *K*<sub>*T1,C2,Eq*,DET</sub> (see Figure 2). Note that the proxy must request the random IV from column C1-IV in order to decrypt the RND ciphertext from C1-Eq. Finally, the proxy decrypts the results from the server using keys *K*<sub>*T1,C1,Eq*,RND</sub>, *K*<sub>*T1,C1,Eq*,DET</sub>, and *K*<sub>*T1,C1,Eq*,JOIN</sub>, obtains the result 23, and returns it to the application.
 
-If the next query is SELECT COUNT(\*) FROM *Employees* WHERE *Name* = ‘Bob’, no server-side decryptions are necessary, and the proxy directly issues the query SELECT COUNT(\*) FROM *Table1* WHERE *C2-Eq* = xbb..4a,wherexbb..4aistheEqonion encryption of “Bob” using *K*<sub>*T1,C2,Eq*,JOIN</sub> and *K*<sub>*T1,C2,Eq*,DET</sub>.
+If the next query is SELECT COUNT(\*) FROM *Employees* WHERE *Name* = ‘Bob’, no server-side decryptions are necessary, and the proxy directly issues the query SELECT COUNT(\*) FROM *Table1* WHERE *C2-Eq* = xbb..4a,where xbb..4a is the *Eq* onion encryption of “Bob” using *K*<sub>*T1,C2,Eq*,JOIN</sub> and *K*<sub>*T1,C2,Eq*,DET</sub>.
 
 **Write query execution.**  To support INSERT, DELETE, and UPDATE queries, the proxy applies the same processing to the predicates (i.e., the WHERE clause) as for read queries. DELETE queries require no additional processing. For all INSERT and UPDATE queries that set the value of a column to a constant, the proxy encrypts each inserted column’s value with each onion layer that has not yet been stripped off in that column.
 
