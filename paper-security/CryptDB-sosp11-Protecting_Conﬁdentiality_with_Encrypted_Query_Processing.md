@@ -202,9 +202,10 @@ Each column is initially encrypted at the JOIN layer using a different key, thus
 For range joins, a similar dynamic re-adjustment scheme is difficult to construct due to lack of structure in OPE schemes. Instead, CryptDB requires that pairs of columns that will be involved in such joins be declared by the application ahead of time, so that matching keys are used for layer OPE-JOIN of those columns; otherwise, the same key will be used for all columns at layer OPE-JOIN. Fortunately, range joins are rare; they are not used in any of our example applications, and are used in only 50 out of 128,840 columns in a large SQL query trace we describe in §8, corresponding to just three distinct applications.
 **JOIN-ADJ construction.** Our algorithm uses elliptic-curve cryptography (ECC). JOIN-ADJ<sub>K</sub> (*v*) is computed as  
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; JOIN-ADJ<sub>*K*</sub>(*v*) := P<sup>*K*·PRF<sub>K0</sub>(*v*)</sup>, (2)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; JOIN-ADJ<sub>*K*</sub>(*v*) := *P*<sup>*K*·PRF<sub>K0</sub>(*v*)</sup>, (2)  
 
 where *K* is the initial key for that table, column, onion, and layer, *P* is a point on an elliptic curve (being a public parameter), and PRF<sub>*K*<sub>0</sub></sub> is a pseudo-random function [20] mapping values to a pseudorandom number, such as AES<sub>*K*<sub>0</sub></sub> (SHA(*v*)), with *K*<sub>0</sub> being a key that is the same for all columns and derived from *MK*. The “exponentiation” is in fact repeated geometric addition of elliptic curve points; it is considerably faster than RSA exponentiation.
+
 When a query joins columns *c* and *c*‘, each having keys *K* and *K*’ at the join layer, the proxy computes ∆*K* = *K*/*K*‘ (in an appropriate group) and sends it to the server. Then, given JOIN-ADJ<sub>*K*‘</sub> (v) (the JOIN-ADJ values from column *c*’) and ∆K, the DBMS server uses a UDF to adjust the key in c‘ by computing:  
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (JOIN-ADJ<sub>*K*‘</sub>(*v*))<sup>∆*K*</sup> = P<sup>*K*‘·PRF<sub>K<sub>0</sub></sub> (v)·(K/K‘)</sup> = P<sup>*K*·PRF<sub>K0</sub>(*v*)</sub> = JOIN-ADJ<sub>*K*</sub>(*v*).  
