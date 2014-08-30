@@ -206,11 +206,11 @@ Each column is initially encrypted at the JOIN layer using a different key, thus
 
 where *K* is the initial key for that table, column, onion, and layer, *P* is a point on an elliptic curve (being a public parameter), and PRF<sub>*K*<sub>0</sub></sub> is a pseudo-random function [20] mapping values to a pseudorandom number, such as AES<sub>*K*<sub>0</sub></sub> (SHA(*v*)), with *K*<sub>0</sub> being a key that is the same for all columns and derived from *MK*. The “exponentiation” is in fact repeated geometric addition of elliptic curve points; it is considerably faster than RSA exponentiation.
 
-When a query joins columns *c* and *c*‘, each having keys *K* and *K*’ at the join layer, the proxy computes ∆*K* = *K*/*K*‘ (in an appropriate group) and sends it to the server. Then, given JOIN-ADJ<sub>*K*‘</sub> (v) (the JOIN-ADJ values from column *c*’) and ∆K, the DBMS server uses a UDF to adjust the key in c‘ by computing:  
+When a query joins columns *c* and *c*’, each having keys *K* and *K*’ at the join layer, the proxy computes ∆*K* = *K*/*K*’ (in an appropriate group) and sends it to the server. Then, given JOIN-ADJ<sub>*K*’</sub> (v) (the JOIN-ADJ values from column *c*’) and ∆K, the DBMS server uses a UDF to adjust the key in c’ by computing:  
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (JOIN-ADJ<sub>*K*‘</sub>(*v*))<sup>∆*K*</sup> = P<sup>*K*‘·PRF<sub>K<sub>0</sub></sub> (v)·(K/K‘)</sup> = P<sup>*K*·PRF<sub>K0</sub>(*v*)</sub> = JOIN-ADJ<sub>*K*</sub>(*v*).  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (JOIN-ADJ<sub>*K*’</sub>(*v*))<sup>∆*K*</sup> = P<sup>*K*’·PRF<sub>K<sub>0</sub></sub> (v)·(K/K’)</sup> = P<sup>*K*·PRF<sub>K0</sub>(*v*)</sub> = JOIN-ADJ<sub>*K*</sub>(*v*).  
 
-Now columns *c* and *c*‘ share the same JOIN-ADJ key, and the DBMS server can perform an equi-join on *c* and *c*‘ by taking the JOIN-ADJ component of the JOIN onion ciphertext.
+Now columns *c* and *c*’ share the same JOIN-ADJ key, and the DBMS server can perform an equi-join on *c* and *c*’ by taking the JOIN-ADJ component of the JOIN onion ciphertext.
 
 At a high level, the security of this scheme is that the server cannot infer join relations among groups of columns that were not requested by legitimate join queries, and that the scheme does not reveal the plaintext. We proved the security of this scheme based on the standard Elliptic-Curve Decisional Diffie-Hellman hardness assumption, and implemented it using a NIST-approved elliptic curve. We plan to publish a more detailed description of this algorithm and the proof on our web site [37].
 
