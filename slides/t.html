@@ -55,7 +55,8 @@
         padding: 15px;
       }
       .inverse {
-        background: #272822;
+        /*background: #272822;*/
+        background: #000;
         color: #777872;
         text-shadow: 0 0 20px #333;
       }
@@ -130,12 +131,20 @@
       var sourceUrl = window.location.search.substring(1);
       if(sourceUrl != null && sourceUrl.length > 0) {
         var slideshow = remark.create({
+            ratio: '16:9',
+            navigation: {
+              click: true,
+            },
             highlightStyle: 'monokai',
             highlightLanguage: 'remark',
             sourceUrl: sourceUrl
           });
       } else {
       var slideshow = remark.create({
+            ratio: '16:9',
+            navigation: {
+              click: true,
+            },
             highlightStyle: 'monokai',
             highlightLanguage: 'remark'
           });
