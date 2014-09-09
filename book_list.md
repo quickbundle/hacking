@@ -21,11 +21,11 @@
 __*CS Basic*__ |
 * <blockquote>Code: The Hidden Language of Computer Hardware and Software |<blockquote>Charles Petzold |<blockquote>编码:隐匿在计算机软硬件背后的语言   
 * Computer Networks 4th       |Andrew S.Tanenbaum    |计算机网络
-* Operation System Concepts   |Peter Baer Galvin     |操作系统概念               
+* Operation System Concepts   |Peter Baer Galvin     |操作系统概念 
+* Modern Operating Systems    |Andrew S.Tanenbaum    |现代操作系统              
 * Structure and Interpretation of Computer Programs |Harold Abelson... |计算机程序的构造与解释
 * Compilers                   |Alfred V.AHO          |编译原理
 * Introduction to Algorithms  |Thomas H.Cormen...    |算法导论
-* Modern Operating Systems    |Andrew S.Tanenbaum    |现代操作系统
 * Discrete Mathematics and Its Applications |Kenneth H.Rosen |离散数学及其应用
 __*Security*__ |
 * <blockquote>Applied Cryptography 2nd    |<blockquote>Bruce Schneier
@@ -66,6 +66,8 @@ __*Engineering*__ |
 * Data Mining                 |Lan H.Witten...       |数据挖掘
 * Think in C++                |Bruce Echel...        |C++编程思想
 *                             |周志明                 |深入理解Java虚拟机
+* <blockquote>Think in Java 4th |<blockquote>Bruce Echel |<blockquote>Java编程思想
+* <blockquote>Ruby Programming |<blockquote>高桥征义,后藤裕藏 
 *                             |<blockquote>许式伟     |<blockquote>Go语言编程
 *                             |<blockquote>张卫峰     |<blockquote>深度解析SDN:利益、战略、技术、实践
 
