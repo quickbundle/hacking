@@ -27,9 +27,14 @@ __*CS Basic*__ |
 * Introduction to Algorithms  |Thomas H.Cormen...    |算法导论
 * Modern Operating Systems    |Andrew S.Tanenbaum    |现代操作系统
 * Discrete Mathematics and Its Applications |Kenneth H.Rosen |离散数学及其应用
+__*Security*__ |
+* <blockquote>Applied Cryptography 2nd    |<blockquote>Bruce Schneier
+* Modern Cryptography: Theory and Practice |Wenbo Mao|现代密码学理论与实践
+* Security Engineering 2nd    |Ross Anderson
+* Cryptography Engineering    |Niels Ferguson, Bruce Schneier 
+* Phrack |
 __*OS & Language & Engineering*__ |
 * <blockquote>The C Programming Language  |<blockquote>Brian W.Kernighan...  |<blockquote>C程序设计语言
-* Think in C++                |Bruce Echel...        |C++编程思想
 * Understanding the Linux Kernel |Daniel P. Bovet...
 * Linux Kernel Development    |Robert Love           |Linux内核设计与实现
 * <blockquote>Design Pattern              |<blockquote>Erich Gamma...        |<blockquote>设计模式
@@ -38,12 +43,6 @@ __*Database*__ |
 * Transaction Processing: Concepts and Techniques |Jim Gray, Andreas Reuter
 * Transactional Information Systems: Theory, Algorithms, and the Practice of Concurrency Control and Recovery |Gerhard Weikum, Gottfried Vossen
 * Database Management Systems |Raghu Ramakrishnan...
-__*Security*__ |
-* <blockquote>Applied Cryptography 2nd    |<blockquote>Bruce Schneier
-* Modern Cryptography: Theory and Practice |Wenbo Mao|现代密码学理论与实践
-* Security Engineering 2nd    |Ross Anderson
-* Cryptography Engineering    |Niels Ferguson, Bruce Schneier 
-* Phrack |
 
 ..we came a long way...
 --------------------------------------------------------------------------------
@@ -54,17 +53,19 @@ __*Security*__ |
 ------------------------------|----------------------|--------------------------
 __*CS Basic*__ |
 * The Art of Computer Programming |Donald E. Knuth   |计算机程序设计艺术
-__*Engineering*__ |
+__*Security*__ |
 * Hacking: The Art of Exploitation 2nd|Jon Erickson
 * A Bug Hunter’s Diary        |TOBIAS KLEIN
 * Hacking Exposed Linux 3rd   |Many authors
-* The Shellcoders Handbook 2nd |A, H, L, R
+* The Shellcoders Handbook 2nd|A, H, L, R
 * Secure Programming for Linux and Unix HOWTO |David A. Wheeler
 * The Art of Intrusion        |Kevin Mitnick
-* Data Mining                 |Lan H.Witten...       |数据挖掘
-*                             |周志明                 |深入理解Java虚拟机
+__*Engineering*__ |
 * Refactoring                 |Martin Flower         |重构
 * Analysis Pattern            |Martin Flower         |分析模式
+* Data Mining                 |Lan H.Witten...       |数据挖掘
+* Think in C++                |Bruce Echel...        |C++编程思想
+*                             |周志明                 |深入理解Java虚拟机
 *                             |<blockquote>许式伟     |<blockquote>Go语言编程
 *                             |<blockquote>张卫峰     |<blockquote>深度解析SDN:利益、战略、技术、实践
 
