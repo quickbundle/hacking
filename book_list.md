@@ -44,8 +44,8 @@ __*Database*__ |
 * Transactional Information Systems: Theory, Algorithms, and the Practice of Concurrency Control and Recovery |Gerhard Weikum, Gottfried Vossen
 * Database Management Systems |Raghu Ramakrishnan...
 
-..we came a long way...
---------------------------------------------------------------------------------
+####we came a long way...
+
 
 
 # Old School: [2.optional] #
@@ -71,5 +71,4 @@ __*Engineering*__ |
 *                             |<blockquote>许式伟     |<blockquote>Go语言编程
 *                             |<blockquote>张卫峰     |<blockquote>深度解析SDN:利益、战略、技术、实践
 
-..to be continued...
---------------------------------------------------------------------------------
+####to be continued...
