@@ -35,7 +35,7 @@ __*Security*__ |
 * Modern Cryptography: Theory and Practice |Wenbo Mao|现代密码学理论与实践
 * Security Engineering 2nd    |Ross Anderson
 * Cryptography Engineering    |Niels Ferguson, Bruce Schneier 
-* Phrack |
+* Phrack #1-#68 |
 __*OS & Engineering & Language*__ |
 * Understanding the Linux Kernel |Daniel P. Bovet... |深入理解Linux内核
 * Linux Kernel Development    |Robert Love           |Linux内核设计与实现
