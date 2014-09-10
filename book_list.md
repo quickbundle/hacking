@@ -17,6 +17,8 @@
 
 # 1. Old School[required] #
 ####we came a long way...
+>Have read
+
   NAME                        |AUTHOR                |CN_NAME 
 ------------------------------|----------------------|--------------------------
 __*CS Basic*__ |
