@@ -15,7 +15,7 @@
 
 [-]==========================================================================[-]
 
-# 1. Old School[required] #
+# 1. Old School [required] #
 ####we came a long way...
 >Have read
 
@@ -47,7 +47,7 @@ __*Database*__ |
 * Transactional Information Systems: Theory, Algorithms, and the Practice of Concurrency Control and Recovery |Gerhard Weikum, Gottfried Vossen
 * Database Management Systems |Raghu Ramakrishnan...
 
-# 2. Old School[optional] #
+# 2. Old School [optional] #
   NAME                        |AUTHOR                |CN_NAME 
 ------------------------------|----------------------|--------------------------
 __*CS Basic*__ |
