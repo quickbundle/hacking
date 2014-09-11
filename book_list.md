@@ -23,7 +23,7 @@
 ------------------------------|----------------------|--------------------------
 __*CS Basic*__ |
 * <blockquote>Code: The Hidden Language of Computer Hardware and Software |<blockquote>Charles Petzold |<blockquote>编码:隐匿在计算机软硬件背后的语言   
-* Computer Networks 4th       |Andrew S.Tanenbaum    |计算机网络
+* ==> Computer Networks 4th       |Andrew S.Tanenbaum    |计算机网络
 * Operation System Concepts   |Peter Baer Galvin     |操作系统概念 
 * Modern Operating Systems    |Andrew S.Tanenbaum    |现代操作系统              
 * Structure and Interpretation of Computer Programs |Harold Abelson... |计算机程序的构造与解释
@@ -32,7 +32,7 @@ __*CS Basic*__ |
 * Discrete Mathematics and Its Applications |Kenneth H.Rosen |离散数学及其应用
 __*Security*__ |
 * <blockquote>Applied Cryptography 2nd    |<blockquote>Bruce Schneier
-* Modern Cryptography: Theory and Practice |Wenbo Mao|现代密码学理论与实践
+* ==> Modern Cryptography: Theory and Practice |Wenbo Mao|现代密码学理论与实践
 * Security Engineering 2nd    |Ross Anderson
 * Cryptography Engineering    |Niels Ferguson, Bruce Schneier 
 * Phrack #1-#68 |
