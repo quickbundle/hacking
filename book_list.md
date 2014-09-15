@@ -17,7 +17,7 @@
 
 >Have read *
 
-# 1. Old School [required] (20) #
+# 1. Old School [required] \(20) #
 ####we came a long way...
 
   NAME                        |AUTHOR                |CN_NAME                   |REVIEW                    
@@ -47,7 +47,7 @@ __*Database*__ |
 * Transactional Information Systems: Theory, Algorithms, and the Practice of Concurrency Control and Recovery |Gerhard Weikum, Gottfried Vossen
 * Database Management Systems |Raghu Ramakrishnan...
 
-# 2. Old School [optional] (25)#
+# 2. Old School [optional] \(25)#
   NAME                        |AUTHOR                |CN_NAME                   |REVIEW                    
 ------------------------------|----------------------|--------------------------|--------------------------
 __*CS Basic*__ |
@@ -80,7 +80,7 @@ __*Think in Language*__ |
 * Think in C++                |Bruce Echel...        |C++编程思想
 * <blockquote>Think in Java 4th |<blockquote>Bruce Echel |<blockquote>Java编程思想|&#x2605;&#x2605;&#x2605;&#x2605;&#x2606; 
 
-# 3. Cultrue & Industry (17)#
+# 3. Cultrue & Industry \(17)#
   NAME                        |AUTHOR                |CN_NAME                   |REVIEW                    
 ------------------------------|----------------------|--------------------------|--------------------------
 __*Culture*__ |
@@ -104,7 +104,7 @@ __*Industry*__ |
 * A Brief History of Time     |Stephen Hawking       |时间简史
 * The Uniserse in a Nutshell  |Stephen Hawking       |果壳中的宇宙
 
-# 4. Applied Technology (12)#
+# 4. Applied Technology \(12)#
   NAME                        |AUTHOR                |CN_NAME                   |REVIEW                    
 ------------------------------|----------------------|--------------------------|--------------------------
 __*Language*__ |
