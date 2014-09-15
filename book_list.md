@@ -121,4 +121,24 @@ __*Tools*__ |
 *                             |子柳                   |淘宝技术这十年
 *                             |蒋鑫                   |Git权威指南
 *                             |唐宏,秦润锋,范均伦       |开源云OpenStack技术指南
-####to be continued...
+
+# 5. Key Papers \(8)#
+###__*Data Security*__
+[CryptDB: Protecting Confidentiality with Encrypted Query Processing](http://web.mit.edu/ralucap/www/CryptDB-sosp11.pdf) | Raluca Ada Popa...
+
+[Building web applications on top of encrypted data using Mylar](http://web.mit.edu/ralucap/www/mylar.pdf) | Raluca Ada Popa...
+
+[An Ideal-Security Protocol for Order-Preserving Encoding](http://web.mit.edu/ralucap/www/mope.pdf) | Raluca Ada Popa...
+
+[Reusable Garbled Circuits and Succinct Functional Encryption](http://eprint.iacr.org/2012/733.pdf) | Shafi Goldwasser...
+
+
+
+###__*Database Engine*__
+[C-Store: A Column-oriented DBMS](http://people.csail.mit.edu/tdanford/6830papers/stonebraker-cstore.pdf) | Mike Stonebraker...
+
+[Mesa: Geo-Replicated, Near Real-Time, Scalable Data Warehousing](http://notes.stephenholiday.com/Mesa.pdf) | Ashish Gupta...
+
+[MonetDB/X100: Hyper-Pipelining Query Execution](http://www.cidrdb.org/cidr2005/papers/P19.pdf) | Peter Boncz...
+
+Paxos: [The Part-Time Parliament](http://research.microsoft.com/en-us/um/people/lamport/pubs/lamport-paxos.pdf) | Leslie Lamport
