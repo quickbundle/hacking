@@ -96,7 +96,7 @@ __*Software Engineering*__ |
 * The Mythical Man-Month      |Frederick P.Brooks.JR  |人月神话
 * Agile Software Development: Principles, Patterns, and Practices |Robert C.Martin |敏捷软件开发: 原则、模式与实践
 * The Pragmatic Programmer: from Journeyman to Master |Andrew Hunt... |程序员修炼之道-从小工到专家
-* Continuous Integration: Improving Software and Reducing Risk |Paul M. Duvall... |持续集成: 软件质量改进和风险降低之道
+* ==> Continuous Integration: Improving Software and Reducing Risk |Paul M. Duvall... |持续集成: 软件质量改进和风险降低之道
 * Continuous Delivery: Reliable Software Releases through Build, Test, and Deployment Automation |Jez Humble... |持续交付：发布可靠软件的系统方法
 __*Industry*__ |
 *                             |吴军                   |浪潮之巅
