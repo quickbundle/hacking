@@ -53,6 +53,9 @@ __*Database*__ |
 __*CS Basic*__ |
 * The Art of Computer Programming |Donald E. Knuth   |计算机程序设计艺术
 * Algorithms 4th              |Robert Sedgewick      |算法
+* TCP/IP Illustrated, Volume 1: The Protocols 2nd |W. Richard Stevens |TCP/IP详解 卷1：协议
+* TCP/IP Illustrated, Volumn 2: The Implementation |W. Richard Stevens |TCP/IP详解 卷2：实现
+* TCP/IP Illustrated, Volumn 3: TCP for Transactions, HTTP, NNTP, and the UNIX Domain Protocols |W. Richard Stevens |TCP/IP详解 卷3：TCP事务协议、HTTP、NNTP和UNIX域协议
 __*Security*__ |
 * Hacking: The Art of Exploitation 2nd|Jon Erickson
 * A Bug Hunter’s Diary        |TOBIAS KLEIN
@@ -70,6 +73,7 @@ __*OS & Engineering*__ |
 * Machine Learning            |Mitchell,T.M.         |机器学习
 *                             |<blockquote>张卫峰     |<blockquote>深度解析SDN:利益、战略、技术、实践
 __*Language*__ |
+* Code Complete 2nd           |Steve McConnell       |代码大全
 * Think in C++                |Bruce Echel...        |C++编程思想
 * <blockquote>Think in Java 4th |<blockquote>Bruce Echel |<blockquote>Java编程思想
 *                             |周志明                 |深入理解Java虚拟机
@@ -91,12 +95,25 @@ __*Culture*__ |
 *                             |吴军                   |数学之美
 * Clean Code A Handbook of Agile Software Craftsmanship |Roberf C. Marlin |代码整洁之道
 * The Mythical Man-Month      |Frederick P.Brooks.JR  |人月神话
+* Agile Software Development: Principles, Patterns, and Practices |Robert C.Martin |敏捷软件开发: 原则、模式与实践
 * The Pragmatic Programmer: from Journeyman to Master |Andrew Hunt... |程序员修炼之道-从小工到专家
+* Out of Control: The New Biology of Machines, Social Systems, and the Economic World |Kevin Kelly |失控
 __*Industry*__ |
 *                             |吴军                   |浪潮之巅
 * Don't Make Me Think         |Steve Krug...         |点石成金: 访客至上的网页设计秘笈
 * A Brief History of Time     |Stephen Hawking       |时间简史
 * The Uniserse in a Nutshell  |Stephen Hawking       |果壳中的宇宙
 
-
+# 4. Applied Technology #
+  NAME                        |AUTHOR                |CN_NAME 
+------------------------------|----------------------|--------------------------
+__*Tools*__ |
+* <blockquote>Model Driven Architecture: Applying MDA to Enterprise Computing |<blockquote>David S. Frankel      |<blockquote>模型驱动架构
+*                             |<blockquote>王威,李辉,李伟          |<blockquote>Eclipse RCP技术内幕
+*                             |<blockquote>刘刚                   |<blockquote>Hadoop应用开发技术详解
+* Continuous Integration: Improving Software and Reducing Risk |Paul M. Duvall... |持续集成: 软件质量改进和风险降低之道
+* Continuous Delivery: Reliable Software Releases through Build, Test, and Deployment Automation |Jez Humble... |持续交付：发布可靠软件的系统方法
+*                             |子柳                   |淘宝技术这十年
+*                             |蒋鑫                   |Git权威指南
+*                             |唐宏,秦润锋,范均伦       |开源云OpenStack技术指南
 ####to be continued...
