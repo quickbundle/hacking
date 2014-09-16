@@ -68,7 +68,7 @@ __*Engineering & AI*__ |
 * Programming Pearls 2nd      |Jon Bentley           |编程珠玑
 * Refactoring                 |Martin Flower         |重构
 * Analysis Pattern            |Martin Flower         |分析模式
-* Data Mining: Practical Machine Learning Tools and Techniques 2nd |Ian H. Witten |数据挖掘: 实用机器学习技术
+* Data Mining: Practical Machine Learning Tools and Techniques |Ian H. Witten |数据挖掘: 实用机器学习技术
 * Introduction to Data Mining |Pang-Ning Tan...      |数据挖掘导论
 * Machine Learning            |Mitchell,T.M.         |机器学习
 __*Think in Language*__ |
@@ -122,7 +122,8 @@ __*Tools*__ |
 ###__*Data Security*__
 > [CryptDB: Protecting Confidentiality with Encrypted Query Processing](http://web.mit.edu/ralucap/www/CryptDB-sosp11.pdf) | Raluca Ada Popa...
 
-[Building web applications on top of encrypted data using Mylar](http://web.mit.edu/ralucap/www/mylar.pdf) | Raluca Ada Popa...
+[Building web applications on top of encrypted data using Mylar
+](http://web.mit.edu/ralucap/www/mylar.pdf) | Raluca Ada Popa...
 
 [An Ideal-Security Protocol for Order-Preserving Encoding](http://web.mit.edu/ralucap/www/mope.pdf) | Raluca Ada Popa...
 
