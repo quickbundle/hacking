@@ -47,7 +47,7 @@ __*Database*__ |
 * Transactional Information Systems: Theory, Algorithms, and the Practice of Concurrency Control and Recovery |Gerhard Weikum, Gottfried Vossen
 * Database Management Systems |Raghu Ramakrishnan...
 
-# 2. Old School [optional] \(25)#
+# 2. Old School [optional] \(23)#
   NAME                        |AUTHOR                |CN_NAME                   |REVIEW                    
 ------------------------------|----------------------|--------------------------|--------------------------
 __*CS Basic*__ |
@@ -68,10 +68,8 @@ __*Engineering & AI*__ |
 * Programming Pearls 2nd      |Jon Bentley           |编程珠玑
 * Refactoring                 |Martin Flower         |重构
 * Analysis Pattern            |Martin Flower         |分析模式
-* Data Mining                 |Lan H.Witten...       |数据挖掘
 * Data Mining: Practical Machine Learning Tools and Techniques 2nd |Ian H. Witten |数据挖掘: 实用机器学习技术
 * Introduction to Data Mining |Pang-Ning Tan...      |数据挖掘导论
-* Pattern Classification 2nd  |Richard O.Duda...     |模式分类
 * Machine Learning            |Mitchell,T.M.         |机器学习
 __*Think in Language*__ |
 * Code Complete 2nd           |Steve McConnell       |代码大全
@@ -80,7 +78,7 @@ __*Think in Language*__ |
 * Think in C++                |Bruce Echel...        |C++编程思想
 * <blockquote>Think in Java 4th |<blockquote>Bruce Echel |<blockquote>Java编程思想|&#x2605;&#x2605;&#x2605;&#x2605;&#x2606; 
 
-# 3. Cultrue & Industry \(17)#
+# 3. Cultrue & Industry \(15)#
   NAME                        |AUTHOR                |CN_NAME                   |REVIEW                    
 ------------------------------|----------------------|--------------------------|--------------------------
 __*Culture*__ |
@@ -94,10 +92,8 @@ __*Culture*__ |
 __*Software Engineering*__ |
 * Clean Code A Handbook of Agile Software Craftsmanship |Roberf C. Marlin |代码整洁之道
 * The Mythical Man-Month      |Frederick P.Brooks.JR  |人月神话
-* Agile Software Development: Principles, Patterns, and Practices |Robert C.Martin |敏捷软件开发: 原则、模式与实践
 * The Pragmatic Programmer: from Journeyman to Master |Andrew Hunt... |程序员修炼之道-从小工到专家
 * ==> Continuous Integration: Improving Software and Reducing Risk |Paul M. Duvall... |持续集成: 软件质量改进和风险降低之道
-* Continuous Delivery: Reliable Software Releases through Build, Test, and Deployment Automation |Jez Humble... |持续交付：发布可靠软件的系统方法
 __*Industry*__ |
 *                             |吴军                   |浪潮之巅
 * Don't Make Me Think         |Steve Krug...         |点石成金: 访客至上的网页设计秘笈
@@ -124,7 +120,7 @@ __*Tools*__ |
 
 # 5. Key Papers \(8)#
 ###__*Data Security*__
-[CryptDB: Protecting Confidentiality with Encrypted Query Processing](http://web.mit.edu/ralucap/www/CryptDB-sosp11.pdf) | Raluca Ada Popa...
+> [CryptDB: Protecting Confidentiality with Encrypted Query Processing](http://web.mit.edu/ralucap/www/CryptDB-sosp11.pdf) | Raluca Ada Popa...
 
 [Building web applications on top of encrypted data using Mylar](http://web.mit.edu/ralucap/www/mylar.pdf) | Raluca Ada Popa...
 
