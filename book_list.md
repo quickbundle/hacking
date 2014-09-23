@@ -93,7 +93,7 @@ __*Software Engineering*__ |
 * Clean Code A Handbook of Agile Software Craftsmanship |Roberf C. Marlin |代码整洁之道
 * The Mythical Man-Month      |Frederick P.Brooks.JR  |人月神话
 * The Pragmatic Programmer: from Journeyman to Master |Andrew Hunt... |程序员修炼之道-从小工到专家
-* ==> Continuous Integration: Improving Software and Reducing Risk |Paul M. Duvall... |持续集成: 软件质量改进和风险降低之道
+* <blockquote>Continuous Integration: Improving Software and Reducing Risk |<blockquote>Paul M. Duvall... |<blockquote>持续集成: 软件质量改进和风险降低之道 |&#x2605;&#x2605;&#x2605;&#x2606;
 __*Industry*__ |
 *                             |吴军                   |浪潮之巅
 * Don't Make Me Think         |Steve Krug...         |点石成金: 访客至上的网页设计秘笈
@@ -118,7 +118,7 @@ __*Tools*__ |
 *                             |蒋鑫                   |Git权威指南
 *                             |唐宏,秦润锋,范均伦       |开源云OpenStack技术指南
 
-# 5. Key Papers \(8)#
+# 5. Key Papers \(9)#
 ###__*Data Security*__
 > [CryptDB: Protecting Confidentiality with Encrypted Query Processing](http://web.mit.edu/ralucap/www/CryptDB-sosp11.pdf) | Raluca Ada Popa...
 
@@ -139,3 +139,22 @@ __*Tools*__ |
 [MonetDB/X100: Hyper-Pipelining Query Execution](http://www.cidrdb.org/cidr2005/papers/P19.pdf) | Peter Boncz...
 
 Paxos: [The Part-Time Parliament](http://research.microsoft.com/en-us/um/people/lamport/pubs/lamport-paxos.pdf) | Leslie Lamport
+
+[Tachyon: Memory Throughput I/O for Cluster Computing Frameworks](http://www.cs.berkeley.edu/~haoyuan/papers/2013_ladis_tachyon.pdf) | Haoyuan Li...
+
+# 6. Training #
+###__*GNU/Linux*__
+<https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/>
+
+###__*Security*__
+<https://github.com/quickbundle/cryptdb>
+<https://github.com/quickbundle/dockerfile/tree/master/bigdata>
+<https://github.com/quickbundle/javasec>
+
+###__*Database*__
+<http://db.csail.mit.edu/projects/cstore/>
+
+###__*Application*__
+<https://github.com/quickbundle/qb-core>
+<https://github.com/quickbundle/qb-archetype>
+<https://github.com/quickbundle/docker-quickbundle>
