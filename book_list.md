@@ -148,7 +148,9 @@ Paxos: [The Part-Time Parliament](http://research.microsoft.com/en-us/um/people/
 
 ###__*Security*__
 <https://github.com/quickbundle/cryptdb>
+
 <https://github.com/quickbundle/dockerfile/tree/master/bigdata>
+
 <https://github.com/quickbundle/javasec>
 
 ###__*Database*__
@@ -156,5 +158,7 @@ Paxos: [The Part-Time Parliament](http://research.microsoft.com/en-us/um/people/
 
 ###__*Application*__
 <https://github.com/quickbundle/qb-core>
+
 <https://github.com/quickbundle/qb-archetype>
+
 <https://github.com/quickbundle/docker-quickbundle>
