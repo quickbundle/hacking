@@ -117,7 +117,7 @@ __*Tools*__ |
 *                             |蒋鑫                   |Git权威指南
 *                             |唐宏,秦润锋,范均伦       |开源云OpenStack技术指南
 
-# 5. Key Papers \(9)#
+# 5. Key Papers #
 ###__*Data Security*__
 > [CryptDB: Protecting Confidentiality with Encrypted Query Processing](http://web.mit.edu/ralucap/www/CryptDB-sosp11.pdf) | Raluca Ada Popa...
 
