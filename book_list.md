@@ -147,6 +147,8 @@ Paxos: [The Part-Time Parliament](http://research.microsoft.com/en-us/um/people/
 <https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/>
 
 ###__*Security*__
+<http://opensecuritytraining.info/Training.html>
+
 <https://github.com/quickbundle/cryptdb>
 
 <https://github.com/quickbundle/dockerfile/tree/master/bigdata>
