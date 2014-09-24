@@ -23,60 +23,59 @@
   NAME                        |AUTHOR                |CN_NAME                   |REVIEW                    
 ------------------------------|----------------------|--------------------------|--------------------------
 __*CS Basic*__ |
-* <blockquote>Code: The Hidden Language of Computer Hardware and Software |<blockquote>Charles Petzold |<blockquote>编码:隐匿在计算机软硬件背后的语言 |&#x2605;&#x2605;&#x2605;&#x2605;&#x2605; 
-* ==> Computer Networks 4th       |Andrew S.Tanenbaum    |计算机网络
-* Operation System Concepts   |Peter Baer Galvin     |操作系统概念 
-* Modern Operating Systems    |Andrew S.Tanenbaum    |现代操作系统              
-* Structure and Interpretation of Computer Programs |Harold Abelson... |计算机程序的构造与解释`
-* Compilers                   |Alfred V.AHO          |编译原理
-* Introduction to Algorithms  |Thomas H.Cormen...    |算法导论
-* Discrete Mathematics and Its Applications |Kenneth H.Rosen |离散数学及其应用
+* <blockquote>Code: The Hidden Language of Computer Hardware and Software, 2000 |<blockquote>Charles Petzold |<blockquote>编码:隐匿在计算机软硬件背后的语言 |&#x2605;&#x2605;&#x2605;&#x2605;&#x2605;
+* Structure and Interpretation of Computer Programs 2nd, 1996 |Harold Abelson, Gerald Jay Sussman, Julie Sussman |计算机程序的构造与解释
+* ==> Computer Networks 5th, 2010 |Andrew S. Tanenbaum, David J. Wetherall |计算机网络
+* Operation System Concepts 9th, 2012 |Abraham Silberschatz, Peter B. Galvin, Greg Gagne |操作系统概念 
+* Modern Operating Systems 4th, 2014 |Andrew S. Tanenbaum, Herbert Bos |现代操作系统              
+* Compilers: Principles, Techniques, and Tools 2nd, 2006 |Alfred V. Aho, Monica S. Lam, Ravi Sethi, Jeffrey D. Ullman |编译原理
+* Introduction to Algorithms 3rd, 2009 |Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, Clifford Stein|算法导论
+* Discrete Mathematics and Its Applications, 2011 |Kenneth H. Rosen |离散数学及其应用
 __*Security*__ |
-* <blockquote>Applied Cryptography 2nd    |<blockquote>Bruce Schneier ||&#x2605;&#x2605;&#x2605;&#x2605;&#x2605; 
-* ==> Modern Cryptography: Theory and Practice |Wenbo Mao|现代密码学理论与实践
-* Security Engineering 2nd    |Ross Anderson
-* Cryptography Engineering    |Niels Ferguson, Bruce Schneier 
-* Phrack #1-#68 |
-__*OS & Engineering & Language*__ |
-* Understanding the Linux Kernel |Daniel P. Bovet... |深入理解Linux内核
-* Linux Kernel Development    |Robert Love           |Linux内核设计与实现
-* <blockquote>Design Pattern              |<blockquote>Erich Gamma...        |<blockquote>设计模式|&#x2605;&#x2605;&#x2605;&#x2605;&#x2605; 
-* <blockquote>The C Programming Language  |<blockquote>Brian W.Kernighan...  |<blockquote>C程序设计语言 |&#x2605;&#x2605;&#x2605;&#x2605;&#x2605; 
+* <blockquote>Applied Cryptography: Protocols, Algorithms, and Source Code in C 2nd, 1996 |<blockquote>Bruce Schneier | 应用密码学: 协议、算法与C源程序|&#x2605;&#x2605;&#x2605;&#x2605;&#x2605; 
+* ==> Modern Cryptography: Theory and Practice, 2003 |Wenbo Mao |现代密码学: 理论与实践
+* Security Engineering: A Guide to Building Dependable Distributed Systems 2nd, 2008 |Ross J. Anderson
+* Cryptography Engineering: Design Principles and Practical Applications, 2010|Niels Ferguson, Bruce Schneier, Tadayoshi Kohno 
+* [Phrack #1-#68](http://www.phrack.org/archives/issues/), 1985-2012 |
+__*Language & OS & Engineering*__ |
+* <blockquote>The C Programming Language 2nd, 1988 |<blockquote>Brian W. Kernighan, Dennis M. Ritchie |<blockquote>C程序设计语言 |&#x2605;&#x2605;&#x2605;&#x2605;&#x2605;
+* <blockquote>Design Pattern, 1994 |<blockquote>Erich Gamma, Richard Helm, Ralph Johnson, John Vlissides |<blockquote>设计模式|&#x2605;&#x2605;&#x2605;&#x2605;&#x2605; 
+* Understanding the Linux Kernel 3rd, 2005 |Daniel P. Bovet, Marco Cesati |深入理解Linux内核
+* Linux Kernel Development 3rd, 2010 |Robert Love |Linux内核设计与实现
 __*Database*__ |
-* Transaction Processing: Concepts and Techniques |Jim Gray, Andreas Reuter
-* Transactional Information Systems: Theory, Algorithms, and the Practice of Concurrency Control and Recovery |Gerhard Weikum, Gottfried Vossen
-* Database Management Systems |Raghu Ramakrishnan...
+* Transaction Processing: Concepts and Techniques, 1992 |Jim Gray, Andreas Reuter
+* Transactional Information Systems: Theory, Algorithms, and the Practice of Concurrency Control and Recovery, 2001 |Gerhard Weikum, Gottfried Vossen
+* Principles of Transaction Processing 2nd, 2009 |Philip A. Bernstein, Eric Newcomer
 
-# 2. Old School [optional] \(23)#
+# 2. Old School [optional] \(22)#
   NAME                        |AUTHOR                |CN_NAME                   |REVIEW                    
 ------------------------------|----------------------|--------------------------|--------------------------
 __*CS Basic*__ |
-* The Art of Computer Programming |Donald E. Knuth   |计算机程序设计艺术
-* Algorithms 4th              |Robert Sedgewick      |算法
-* TCP/IP Illustrated, Volume 1: The Protocols 2nd |W. Richard Stevens |TCP/IP详解 卷1：协议
-* TCP/IP Illustrated, Volumn 2: The Implementation |W. Richard Stevens |TCP/IP详解 卷2：实现
-* TCP/IP Illustrated, Volumn 3: TCP for Transactions, HTTP, NNTP, and the UNIX Domain Protocols |W. Richard Stevens |TCP/IP详解 卷3：TCP事务协议、HTTP、NNTP和UNIX域协议
-* HTTP: The Definitive Guide  |David Gourley...      |HTTP权威指南
+* The Art of Computer Programming Vol. 1-4A, 1968-2011 |Donald E. Knuth   |计算机程序设计艺术
+* Algorithms 4th, 2011        |Robert Sedgewick, Kevin Wayne |算法
+* TCP/IP Illustrated, Volume 1: The Protocols 2nd, 2011 |Kevin R. Fall, W. Richard Stevens |TCP/IP详解 卷1：协议
+* TCP/IP Illustrated, Volumn 2: The Implementation, 1993 |W. Richard Stevens |TCP/IP详解 卷2：实现
+* TCP/IP Illustrated, Volumn 3: TCP for Transactions, HTTP, NNTP, and the UNIX Domain Protocols, 1996 |W. Richard Stevens |TCP/IP详解 卷3：TCP事务协议、HTTP、NNTP和UNIX域协议
+* HTTP: The Definitive Guide, 2002 |David Gourley, Brian Totty, Marjorie Sayer, Anshu Aggarwal, Sailu Reddy |HTTP权威指南
 __*Security*__ |
-* Beyond Fear: Thinking Sensibly about Security in an Uncertain World |Bruce Schneier
-* Hacking: The Art of Exploitation 2nd|Jon Erickson
-* A Bug Hunter’s Diary        |TOBIAS KLEIN
-* Hacking Exposed Linux 3rd   |Many authors
-* The Shellcoders Handbook 2nd|A, H, L, R
-* Secure Programming for Linux and Unix HOWTO |David A. Wheeler
+* Beyond Fear: Thinking Sensibly about Security in an Uncertain World, 2003 |Bruce Schneier
+* Secure Programming for Linux and Unix HOWTO, 2004 |David A. Wheeler
+* The Shellcoder's Handbook: Discovering and Exploiting Security Holes, 2007|Chris Anley, John Heasman, Felix Lindner, Gerardo Richarte
+* Hacking: The Art of Exploitation 2nd, 2008|Jon Erickson
+* A Bug Hunter's Diary: A Guided Tour Through the Wilds of Software Security, 2011|Tobias Klein
 __*Engineering & AI*__ |
-* Programming Pearls 2nd      |Jon Bentley           |编程珠玑
-* Refactoring                 |Martin Flower         |重构
-* Analysis Pattern            |Martin Flower         |分析模式
-* Data Mining: Practical Machine Learning Tools and Techniques |Ian H. Witten |数据挖掘: 实用机器学习技术
-* Introduction to Data Mining |Pang-Ning Tan...      |数据挖掘导论
-* Machine Learning            |Mitchell,T.M.         |机器学习
+* Analysis Patterns: Reusable Object Models, 1996 |Martin Flower |分析模式
+* Programming Pearls 2nd, 1999 |Jon Bentley          |编程珠玑
+* Refactoring: Improving the Design of Existing Code, 1999 |Martin Flower, Kent Beck, John Brant, William Opdyke, Don Roberts|重构
+* Machine Learning, 1997      |Tom M. Mitchell       |机器学习
+* Introduction to Data Mining, 2005 |Pang-Ning Tan, Michael Steinbach, Vipin Kumar|数据挖掘导论
+* Data Mining: Practical Machine Learning Tools and Techniques 3rd, 2011 |Ian H. Witten, Eibe Frank, Mark A. Hall |数据挖掘: 实用机器学习技术
 __*Think in Language*__ |
-* Code Complete 2nd           |Steve McConnell       |代码大全
-* Beautiful Code: Leading Programmers Explain How They Think |Andy Oram, Greg Wilson |代码之美
-* Domain-Specific Languages   |Martin Flower         |领域特定语言
-* Think in C++                |Bruce Echel...        |C++编程思想
-* <blockquote>Think in Java 4th |<blockquote>Bruce Echel |<blockquote>Java编程思想|&#x2605;&#x2605;&#x2605;&#x2605;&#x2606; 
+* Think in C++ Vol. 1,2, 2000,2003 |Bruce Echel, Chuck Allison |C++编程思想
+* <blockquote>Think in Java 4th, 2006 |<blockquote>Bruce Echel |<blockquote>Java编程思想|&#x2605;&#x2605;&#x2605;&#x2605;&#x2606; 
+* Code Complete 2nd, 2004     |Steve McConnell       |代码大全
+* Beautiful Code: Leading Programmers Explain How They Think, 2007 |Andy Oram, Greg Wilson |代码之美
+* Domain-Specific Languages, 2010 |Martin Flower         |领域特定语言
 
 # 3. Cultrue & Industry \(15)#
   NAME                        |AUTHOR                |CN_NAME                   |REVIEW                    
@@ -141,6 +140,8 @@ __*Tools*__ |
 Paxos: [The Part-Time Parliament](http://research.microsoft.com/en-us/um/people/lamport/pubs/lamport-paxos.pdf) | Leslie Lamport
 
 [Tachyon: Memory Throughput I/O for Cluster Computing Frameworks](http://www.cs.berkeley.edu/~haoyuan/papers/2013_ladis_tachyon.pdf) | Haoyuan Li...
+
+[Requirements for Science Data Bases and SciDB](http://www-db.cs.wisc.edu/cidr/cidr2009/Paper_26.pdf) | Michael Stonebraker...
 
 # 6. Training #
 ###__*GNU/Linux*__
