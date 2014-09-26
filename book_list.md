@@ -161,7 +161,7 @@ My Open Source Project, java web application with security harden]ing (2015 - ):
 ###__*Database*__
 <http://db.csail.mit.edu/projects/cstore/>
 
-My Open Source Project, a database engine (2014 - ):
+My Open Source Project, a database engine (2014 - ):  
 <http://mesadb.com/>  
 <https://github.com/mesadb>
 
