@@ -43,11 +43,11 @@ __*Language & OS & Engineering*__ |
 * Understanding the Linux Kernel 3rd, 2005 |Daniel P. Bovet, Marco Cesati |深入理解Linux内核
 * Linux Kernel Development 3rd, 2010 |Robert Love |Linux内核设计与实现
 __*Database*__ |
-* Transaction Processing: Concepts and Techniques, 1992 |Jim Gray, Andreas Reuter
+* ==> Transaction Processing: Concepts and Techniques, 1992 |Jim Gray, Andreas Reuter
 * Transactional Information Systems: Theory, Algorithms, and the Practice of Concurrency Control and Recovery, 2001 |Gerhard Weikum, Gottfried Vossen
 * Principles of Transaction Processing 2nd, 2009 |Philip A. Bernstein, Eric Newcomer
 
-# 2. Old School [optional] \(22)#
+# 2. Old School [optional] \(23)#
   NAME                        |AUTHOR                |CN_NAME                   |REVIEW                    
 ------------------------------|----------------------|--------------------------|--------------------------
 __*CS Basic*__ |
@@ -70,6 +70,7 @@ __*Engineering & AI*__ |
 * Machine Learning, 1997      |Tom M. Mitchell       |机器学习
 * Introduction to Data Mining, 2005 |Pang-Ning Tan, Michael Steinbach, Vipin Kumar|数据挖掘导论
 * Data Mining: Practical Machine Learning Tools and Techniques 3rd, 2011 |Ian H. Witten, Eibe Frank, Mark A. Hall |数据挖掘: 实用机器学习技术
+* Database Management Systems 3rd, 2002 |Raghu Ramakrishnan, Johannes Gehrke
 __*Think in Language*__ |
 * Think in C++ Vol. 1,2, 2000,2003 |Bruce Echel, Chuck Allison |C++编程思想
 * <blockquote>Think in Java 4th, 2006 |<blockquote>Bruce Echel |<blockquote>Java编程思想|&#x2605;&#x2605;&#x2605;&#x2605;&#x2606; 
@@ -121,7 +122,7 @@ __*Tools*__ |
 ###__*Data Security*__
 > [CryptDB: Protecting Confidentiality with Encrypted Query Processing](http://web.mit.edu/ralucap/www/CryptDB-sosp11.pdf) | Raluca Ada Popa...
 
-[Building web applications on top of encrypted data using Mylar
+==> [Building web applications on top of encrypted data using Mylar
 ](http://web.mit.edu/ralucap/www/mylar.pdf) | Raluca Ada Popa...
 
 [An Ideal-Security Protocol for Order-Preserving Encoding](http://web.mit.edu/ralucap/www/mope.pdf) | Raluca Ada Popa...
@@ -131,7 +132,7 @@ __*Tools*__ |
 
 
 ###__*Database Engine*__
-[C-Store: A Column-oriented DBMS](http://people.csail.mit.edu/tdanford/6830papers/stonebraker-cstore.pdf) | Mike Stonebraker...
+==> [C-Store: A Column-oriented DBMS](http://people.csail.mit.edu/tdanford/6830papers/stonebraker-cstore.pdf) | Mike Stonebraker...
 
 [Mesa: Geo-Replicated, Near Real-Time, Scalable Data Warehousing](http://notes.stephenholiday.com/Mesa.pdf) | Ashish Gupta...
 
@@ -157,6 +158,8 @@ My Open Source Project, bigdata practice (2014 - ):
 
 My Open Source Project, java web application with security harden]ing (2015 - ):  
 <https://github.com/quickbundle/javasec>
+
+==> MyCrypt
 
 ###__*Database*__
 <http://db.csail.mit.edu/projects/cstore/>
