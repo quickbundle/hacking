@@ -17,7 +17,7 @@
 
 - [1. Old School \[required\] \(20)](#1-old-school-required-20)
 - [2. Old School \[optional\] \(23)](#2-old-school-optional-23)
-- [3. Cultrue & Industry \(15)](#3-cultrue-industry-15)
+- [3. Cultrue & Industry \(15)](#3-cultrue--industry-15)
 - [4. Applied Technology \(12)](#4-applied-technology-12)
 - [5. Key Papers](#5-key-papers)
 - [6. Training](#6-training)
