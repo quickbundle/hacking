@@ -15,12 +15,16 @@
 
 [-]==========================================================================[-]
 
-- [1. Old School \[required\]](#old-school-required-20)
-- [2. Old School \[optional\]](#2.old-school-optional-23)
+- [1. Old School \[required\] \(20)](#1-old-school-required-20)
+- [2. Old School \[optional\] \(23)](#2-old-school-optional-23)
+- [3. Cultrue & Industry \(15)](#3-cultrue-industry-15)
+- [4. Applied Technology \(12)](#4-applied-technology-12)
+- [5. Key Papers](#5-key-papers)
+- [6. Training](#6-training)
 
 >Have read *
 
-# Old School required 20
+# 1. Old School [required] \(20)
 ####we came a long way...
 
   NAME                        |AUTHOR                |CN_NAME                   |REVIEW                    
@@ -50,7 +54,7 @@ __*Database*__ |
 * Transactional Information Systems: Theory, Algorithms, and the Practice of Concurrency Control and Recovery, 2001 |Gerhard Weikum, Gottfried Vossen
 * Principles of Transaction Processing 2nd, 2009 |Philip A. Bernstein, Eric Newcomer
 
-# 2. Old School Optional 23
+# 2. Old School [optional] \(23)
   NAME                        |AUTHOR                |CN_NAME                   |REVIEW                    
 ------------------------------|----------------------|--------------------------|--------------------------
 __*CS Basic*__ |
@@ -81,7 +85,7 @@ __*Think in Language*__ |
 * Beautiful Code: Leading Programmers Explain How They Think, 2007 |Andy Oram, Greg Wilson |代码之美
 * Domain-Specific Languages, 2010 |Martin Flower         |领域特定语言
 
-# 3. Cultrue & Industry \(15)#
+# 3. Cultrue & Industry \(15)
   NAME                        |AUTHOR                |CN_NAME                   |REVIEW                    
 ------------------------------|----------------------|--------------------------|--------------------------
 __*Culture*__ |
@@ -103,7 +107,7 @@ __*Industry*__ |
 * A Brief History of Time     |Stephen Hawking       |时间简史
 * The Uniserse in a Nutshell  |Stephen Hawking       |果壳中的宇宙
 
-# 4. Applied Technology \(12)#
+# 4. Applied Technology \(12)
   NAME                        |AUTHOR                |CN_NAME                   |REVIEW                    
 ------------------------------|----------------------|--------------------------|--------------------------
 __*Language*__ |
@@ -121,7 +125,7 @@ __*Tools*__ |
 *                             |蒋鑫                   |Git权威指南
 *                             |唐宏,秦润锋,范均伦       |开源云OpenStack技术指南
 
-# 5. Key Papers #
+# 5. Key Papers
 ###__*Data Security*__
 > [CryptDB: Protecting Confidentiality with Encrypted Query Processing](http://web.mit.edu/ralucap/www/CryptDB-sosp11.pdf) | Raluca Ada Popa...
 
@@ -147,7 +151,7 @@ Paxos: [The Part-Time Parliament](http://research.microsoft.com/en-us/um/people/
 
 [Requirements for Science Data Bases and SciDB](http://www-db.cs.wisc.edu/cidr/cidr2009/Paper_26.pdf) | Michael Stonebraker...
 
-# 6. Training #
+# 6. Training
 ###__*GNU/Linux*__
 <https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/>
 
