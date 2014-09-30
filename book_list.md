@@ -15,6 +15,9 @@
 
 [-]==========================================================================[-]
 
+- [1. Old School \[required\]](# 1. Old School \[required\] \\(20\) #)
+- [2. Old School \[optional\]](# 2. Old School \[optional\] \\(23\) #)
+
 >Have read *
 
 # 1. Old School [required] \(20) #
@@ -47,7 +50,7 @@ __*Database*__ |
 * Transactional Information Systems: Theory, Algorithms, and the Practice of Concurrency Control and Recovery, 2001 |Gerhard Weikum, Gottfried Vossen
 * Principles of Transaction Processing 2nd, 2009 |Philip A. Bernstein, Eric Newcomer
 
-# 2. Old School [optional] \(23)#
+# 2. Old School [optional] \(23) #
   NAME                        |AUTHOR                |CN_NAME                   |REVIEW                    
 ------------------------------|----------------------|--------------------------|--------------------------
 __*CS Basic*__ |
