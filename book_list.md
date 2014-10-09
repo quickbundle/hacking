@@ -136,6 +136,7 @@ __*Tools*__ |
 
 [Reusable Garbled Circuits and Succinct Functional Encryption](http://eprint.iacr.org/2012/733.pdf) | Shafi Goldwasser...
 
+[Shielding Applications from an Untrusted Cloud with Haven](https://www.usenix.org/system/files/conference/osdi14/osdi14-paper-baumann.pdf) | Andrew Baumann, Marcus Peinado, and Galen Hunt, Microsoft Research
 
 
 ###__*Database Engine*__
