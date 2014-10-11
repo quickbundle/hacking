@@ -32,7 +32,7 @@
 __*CS Basic*__ |
 * <blockquote>Code: The Hidden Language of Computer Hardware and Software, 2000 |<blockquote>Charles Petzold |<blockquote>编码:隐匿在计算机软硬件背后的语言 |&#x2605;&#x2605;&#x2605;&#x2605;&#x2605;
 * Structure and Interpretation of Computer Programs 2nd, 1996 |Harold Abelson, Gerald Jay Sussman, Julie Sussman |计算机程序的构造与解释
-* ==> Computer Networks 5th, 2010 |Andrew S. Tanenbaum, David J. Wetherall |计算机网络
+* <blockquote>Computer Networks 5th, 2010 |<blockquote>Andrew S. Tanenbaum, David J. Wetherall |<blockquote>计算机网络 |&#x2605;&#x2605;&#x2605;&#x2605;&#x2605;
 * Operation System Concepts 9th, 2012 |Abraham Silberschatz, Peter B. Galvin, Greg Gagne |操作系统概念 
 * Modern Operating Systems 4th, 2014 |Andrew S. Tanenbaum, Herbert Bos |现代操作系统              
 * Compilers: Principles, Techniques, and Tools 2nd, 2006 |Alfred V. Aho, Monica S. Lam, Ravi Sethi, Jeffrey D. Ullman |编译原理
