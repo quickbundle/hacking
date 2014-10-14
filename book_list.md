@@ -107,7 +107,7 @@ __*Industry*__ |
 * A Brief History of Time     |Stephen Hawking       |时间简史
 * The Uniserse in a Nutshell  |Stephen Hawking       |果壳中的宇宙
 
-# 4. Applied Technology \(12)
+# 4. Applied Technology \(13)
   NAME                        |AUTHOR                |CN_NAME                   |REVIEW                    
 ------------------------------|----------------------|--------------------------|--------------------------
 __*Language*__ |
