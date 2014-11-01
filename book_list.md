@@ -17,9 +17,9 @@
 
 - [1. Old School \[required\] \(20)](#1-old-school-required-20)
 - [2. Old School \[optional\] \(23)](#2-old-school-optional-23)
-- [3. Cultrue & Industry \(15)](#3-cultrue--industry-15)
-- [4. Applied Technology \(12)](#4-applied-technology-12)
-- [5. Key Papers](#5-key-papers)
+- [3. Key Papers](#3-key-papers)
+- [4. Cultrue & Industry \(14)](#4-cultrue--industry-14)
+- [5. Applied Technology \(12)](#5-applied-technology-12)
 - [6. Training](#6-training)
 
 >Have read *
@@ -85,7 +85,75 @@ __*Think in Language*__ |
 * Beautiful Code: Leading Programmers Explain How They Think, 2007 |Andy Oram, Greg Wilson |代码之美
 * Domain-Specific Languages, 2010 |Martin Flower         |领域特定语言
 
-# 3. Cultrue & Industry \(15)
+# 3. Key Papers
+###__*Cryptography*__
+
+==> [A Mathematical Theory of Communication](http://cm.bell-labs.com/cm/ms/what/shannonday/shannon1948.pdf) | Claude Elwood Shannon, 1948
+
+[Communication Theory of Secrecy Systems](http://www3.alcatel-lucent.com/bstj/vol28-1949/articles/bstj28-4-656.pdf) | Claude Elwood Shannon, 1949
+
+[A Method for Obtaining Digital Signatures and Public-Key Cryptosystems](http://people.csail.mit.edu/rivest/Rsapaper.pdf) | R.L. Rivest, A. Shamir, and L. Adleman, 1977
+
+[Advanced Encryption Standard (AES)](http://en.wikipedia.org/wiki/Advanced_Encryption_Standard) | Joan Daemen, Vincent Rijmen, 2001
+
+[Transport Layer Security (TLS)](http://en.wikipedia.org/wiki/Transport_Layer_Security) | 1999
+
+###__*Data Security Engineering*__
+> [CryptDB: Protecting Confidentiality with Encrypted Query Processing](http://web.mit.edu/ralucap/www/CryptDB-sosp11.pdf) | Raluca Ada Popa...
+
+> [Building web applications on top of encrypted data using Mylar](http://web.mit.edu/ralucap/www/mylar.pdf) | Raluca Ada Popa...
+
+[An Ideal-Security Protocol for Order-Preserving Encoding](http://web.mit.edu/ralucap/www/mope.pdf) | Raluca Ada Popa...
+
+[Reusable Garbled Circuits and Succinct Functional Encryption](http://eprint.iacr.org/2012/733.pdf) | Shafi Goldwasser...
+
+[Shielding Applications from an Untrusted Cloud with Haven](https://www.usenix.org/system/files/conference/osdi14/osdi14-paper-baumann.pdf) | Andrew Baumann, Marcus Peinado, and Galen Hunt, Microsoft Research
+
+[Crypton: Zero-Knowledge Application Framework](https://crypton.io/crypton.pdf) | Cam Pedersen, David Dahl
+
+
+###__*Traditional Database Engine*__
+[The Programmer as Navigator](http://www.jdl.ac.cn/turing/pdf/p653-bachman.pdf) | Charles W. Bachman, 1973
+
+[A Relational Model of Data for Large Shared Data Banks](http://www.seas.upenn.edu/~zives/03f/cis550/codd.pdf) | Edgar F. Codd, 1970
+
+[The Design and Implementation of INGRES](http://www.seas.upenn.edu/~zives/cis650/papers/INGRES.PDF) | Mike Stonebraker..., UCB & Tandem, 1976
+
+[THE DESIGN OF POSTGRES](http://db.cs.berkeley.edu/papers/ERL-M85-95.pdf) | Michael Stonebraker and Lawrence A. Rowe, 1986
+
+[The POSTGRES papers](http://db.cs.berkeley.edu/papers/ERL-M86-85.pdf) | Michael Stonebraker, Lawrence A.Rowe, UCB/ERL, 1987
+
+* The design of POSTGRES
+* The POSTGRES data model
+* A rule manager for relational database systems
+* The design of the POSTGRES storage system
+* A shared object hierarchy
+    
+    
+###__*New Data Processing Engine*__
+Paxos: [The Part-Time Parliament](http://research.microsoft.com/en-us/um/people/lamport/pubs/lamport-paxos.pdf) | Leslie Lamport， 1998
+
+[The Google File System](http://static.googleusercontent.com/media/research.google.com/en//archive/gfs-sosp2003.pdf) | Sanjay Ghemawat, Howard Gobioff, and Shun-Tak Leung, Google, 2003
+
+[MapReduce: Simplified Data Processing on Large Clusters](http://static.googleusercontent.com/media/research.google.com/en//archive/mapreduce-osdi04.pdf) | Jeffrey Dean, Sanjay Ghemawat, Google, 2004
+
+[Bigtable: A Distributed Storage System for Structured Data](http://static.googleusercontent.com/media/research.google.com/en//archive/bigtable-osdi06.pdf) | Fay Chang, Jeffrey Dean, Sanjay Ghemawat..., Google, 2006
+
+[C-Store: A Column-oriented DBMS](http://people.csail.mit.edu/tdanford/6830papers/stonebraker-cstore.pdf) | Mike Stonebraker...
+
+Spark: [Resilient Distributed Datasets: A Fault-Tolerant Abstraction for In-Memory Cluster Computing](https://www.cs.berkeley.edu/~matei/papers/2012/nsdi_spark.pdf) | Matei Zaharia..., UCB
+
+[Tachyon: Memory Throughput I/O for Cluster Computing Frameworks](http://www.cs.berkeley.edu/~haoyuan/papers/2013_ladis_tachyon.pdf) | Haoyuan Li...
+
+[Mesa: Geo-Replicated, Near Real-Time, Scalable Data Warehousing](http://notes.stephenholiday.com/Mesa.pdf) | Ashish Gupta...
+
+[MonetDB/X100: Hyper-Pipelining Query Execution](http://www.cidrdb.org/cidr2005/papers/P19.pdf) | Peter Boncz...
+
+
+[Requirements for Science Data Bases and SciDB](http://www-db.cs.wisc.edu/cidr/cidr2009/Paper_26.pdf) | Michael Stonebraker...
+
+
+# 4. Cultrue & Industry \(14)
   NAME                        |AUTHOR                |CN_NAME                   |REVIEW                    
 ------------------------------|----------------------|--------------------------|--------------------------
 __*Culture*__ |
@@ -102,12 +170,11 @@ __*Software Engineering*__ |
 * The Pragmatic Programmer: from Journeyman to Master |Andrew Hunt... |程序员修炼之道-从小工到专家
 * <blockquote>Continuous Integration: Improving Software and Reducing Risk |<blockquote>Paul M. Duvall... |<blockquote>持续集成: 软件质量改进和风险降低之道 |&#x2605;&#x2605;&#x2605;&#x2606;
 __*Industry*__ |
-*                             |吴军                   |浪潮之巅
 * Don't Make Me Think         |Steve Krug...         |点石成金: 访客至上的网页设计秘笈
 * A Brief History of Time     |Stephen Hawking       |时间简史
 * The Uniserse in a Nutshell  |Stephen Hawking       |果壳中的宇宙
 
-# 4. Applied Technology \(13)
+# 5. Applied Technology \(13)
   NAME                        |AUTHOR                |CN_NAME                   |REVIEW                    
 ------------------------------|----------------------|--------------------------|--------------------------
 __*Language*__ |
@@ -126,32 +193,6 @@ __*Tools*__ |
 *                             |唐宏,秦润锋,范均伦       |开源云OpenStack技术指南
 *                             |徳丸浩 著;赵文,刘斌 译   |Web应用安全权威指南
 
-# 5. Key Papers
-###__*Data Security*__
-> [CryptDB: Protecting Confidentiality with Encrypted Query Processing](http://web.mit.edu/ralucap/www/CryptDB-sosp11.pdf) | Raluca Ada Popa...
-
-> [Building web applications on top of encrypted data using Mylar
-](http://web.mit.edu/ralucap/www/mylar.pdf) | Raluca Ada Popa...
-
-[An Ideal-Security Protocol for Order-Preserving Encoding](http://web.mit.edu/ralucap/www/mope.pdf) | Raluca Ada Popa...
-
-[Reusable Garbled Circuits and Succinct Functional Encryption](http://eprint.iacr.org/2012/733.pdf) | Shafi Goldwasser...
-
-[Shielding Applications from an Untrusted Cloud with Haven](https://www.usenix.org/system/files/conference/osdi14/osdi14-paper-baumann.pdf) | Andrew Baumann, Marcus Peinado, and Galen Hunt, Microsoft Research
-
-
-###__*Database Engine*__
-==> [C-Store: A Column-oriented DBMS](http://people.csail.mit.edu/tdanford/6830papers/stonebraker-cstore.pdf) | Mike Stonebraker...
-
-[Mesa: Geo-Replicated, Near Real-Time, Scalable Data Warehousing](http://notes.stephenholiday.com/Mesa.pdf) | Ashish Gupta...
-
-[MonetDB/X100: Hyper-Pipelining Query Execution](http://www.cidrdb.org/cidr2005/papers/P19.pdf) | Peter Boncz...
-
-Paxos: [The Part-Time Parliament](http://research.microsoft.com/en-us/um/people/lamport/pubs/lamport-paxos.pdf) | Leslie Lamport
-
-[Tachyon: Memory Throughput I/O for Cluster Computing Frameworks](http://www.cs.berkeley.edu/~haoyuan/papers/2013_ladis_tachyon.pdf) | Haoyuan Li...
-
-[Requirements for Science Data Bases and SciDB](http://www-db.cs.wisc.edu/cidr/cidr2009/Paper_26.pdf) | Michael Stonebraker...
 
 # 6. Training
 ###__*GNU/Linux*__
