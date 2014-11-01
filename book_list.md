@@ -133,15 +133,15 @@ __*Think in Language*__ |
 ###__*New Data Processing Engine*__
 Paxos: [The Part-Time Parliament](http://research.microsoft.com/en-us/um/people/lamport/pubs/lamport-paxos.pdf) | Leslie Lamport， 1998
 
-[The Google File System](http://static.googleusercontent.com/media/research.google.com/en//archive/gfs-sosp2003.pdf) | Sanjay Ghemawat, Howard Gobioff, and Shun-Tak Leung, Google, 2003
+[The Google File System](http://static.googleusercontent.com/media/research.google.com/en//archive/gfs-sosp2003.pdf) | Sanjay Ghemawat, Howard Gobioff, Shun-Tak Leung, Google, 2003
 
 [MapReduce: Simplified Data Processing on Large Clusters](http://static.googleusercontent.com/media/research.google.com/en//archive/mapreduce-osdi04.pdf) | Jeffrey Dean, Sanjay Ghemawat, Google, 2004
 
-[Bigtable: A Distributed Storage System for Structured Data](http://static.googleusercontent.com/media/research.google.com/en//archive/bigtable-osdi06.pdf) | Fay Chang, Jeffrey Dean, Sanjay Ghemawat..., Google, 2006
+[Bigtable: A Distributed Storage System for Structured Data](http://static.googleusercontent.com/media/research.google.com/en//archive/bigtable-osdi06.pdf) | Fay Chang, Jeffrey Dean..., Google, 2006
 
 [C-Store: A Column-oriented DBMS](http://people.csail.mit.edu/tdanford/6830papers/stonebraker-cstore.pdf) | Mike Stonebraker...
 
-Spark: [Resilient Distributed Datasets: A Fault-Tolerant Abstraction for In-Memory Cluster Computing](https://www.cs.berkeley.edu/~matei/papers/2012/nsdi_spark.pdf) | Matei Zaharia..., UCB
+[Resilient Distributed Datasets: A Fault-Tolerant Abstraction for In-Memory Cluster Computing](https://www.cs.berkeley.edu/~matei/papers/2012/nsdi_spark.pdf) | Matei Zaharia..., UCB
 
 [Tachyon: Memory Throughput I/O for Cluster Computing Frameworks](http://www.cs.berkeley.edu/~haoyuan/papers/2013_ladis_tachyon.pdf) | Haoyuan Li...
 
