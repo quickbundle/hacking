@@ -16,10 +16,10 @@
 [-]==========================================================================[-]
 
 - [1. Old School \[required\] \(20)](#1-old-school-required-20)
-- [2. Old School \[optional\] \(23)](#2-old-school-optional-23)
+- [2. Old School \[optional\] \(20)](#2-old-school-optional-20)
 - [3. Key Papers](#3-key-papers)
 - [4. Cultrue & Industry \(14)](#4-cultrue--industry-14)
-- [5. Applied Technology \(13)](#5-applied-technology-13)
+- [5. Applied Technology \(12)](#5-applied-technology-12)
 - [6. Training](#6-training)
 
 >Have read *
@@ -54,18 +54,15 @@ __*Database*__ |
 * Transactional Information Systems: Theory, Algorithms, and the Practice of Concurrency Control and Recovery, 2001 |Gerhard Weikum, Gottfried Vossen
 * Principles of Transaction Processing 2nd, 2009 |Philip A. Bernstein, Eric Newcomer
 
-# 2. Old School [optional] \(23)
+# 2. Old School [optional] \(20)
   NAME                        |AUTHOR                |CN_NAME                   |REVIEW                    
 ------------------------------|----------------------|--------------------------|--------------------------
 __*CS Basic*__ |
 * The Art of Computer Programming Vol. 1-4A, 1968-2011 |Donald E. Knuth   |计算机程序设计艺术
-* Algorithms 4th, 2011        |Robert Sedgewick, Kevin Wayne |算法
 * TCP/IP Illustrated, Volume 1: The Protocols 2nd, 2011 |Kevin R. Fall, W. Richard Stevens |TCP/IP详解 卷1：协议
 * TCP/IP Illustrated, Volumn 2: The Implementation, 1993 |W. Richard Stevens |TCP/IP详解 卷2：实现
 * TCP/IP Illustrated, Volumn 3: TCP for Transactions, HTTP, NNTP, and the UNIX Domain Protocols, 1996 |W. Richard Stevens |TCP/IP详解 卷3：TCP事务协议、HTTP、NNTP和UNIX域协议
-* HTTP: The Definitive Guide, 2002 |David Gourley, Brian Totty, Marjorie Sayer, Anshu Aggarwal, Sailu Reddy |HTTP权威指南
 __*Security*__ |
-* Beyond Fear: Thinking Sensibly about Security in an Uncertain World, 2003 |Bruce Schneier
 * Secure Programming for Linux and Unix HOWTO, 2004 |David A. Wheeler
 * The Shellcoder's Handbook: Discovering and Exploiting Security Holes, 2007|Chris Anley, John Heasman, Felix Lindner, Gerardo Richarte
 * Hacking: The Art of Exploitation 2nd, 2008|Jon Erickson
@@ -174,16 +171,16 @@ __*Industry*__ |
 * A Brief History of Time     |Stephen Hawking       |时间简史
 * The Uniserse in a Nutshell  |Stephen Hawking       |果壳中的宇宙
 
-# 5. Applied Technology \(13)
+# 5. Applied Technology \(12)
   NAME                        |AUTHOR                |CN_NAME                   |REVIEW                    
 ------------------------------|----------------------|--------------------------|--------------------------
 __*Language*__ |
 * <blockquote>Ruby Programming |<blockquote>高桥征义,后藤裕藏 ||&#x2605;&#x2605;&#x2605;&#x2605;&#x2605; 
-*                             |松本行弘               |松本行弘的程序世界
 *                             |<blockquote>许式伟     |<blockquote>Go语言编程 |&#x2605;&#x2605;&#x2605;
 *                             |陈儒                   |Python源代码剖析
 *                             |周志明                 |深入理解Java虚拟机
 __*Tools*__ |
+* HTTP: The Definitive Guide, 2002 |David Gourley, Brian Totty, Marjorie Sayer, Anshu Aggarwal, Sailu Reddy |HTTP权威指南
 *                             |<blockquote>张卫峰     |<blockquote>深度解析SDN:利益、战略、技术、实践 |&#x2605;&#x2605;&#x2605;
 * <blockquote>Model Driven Architecture: Applying MDA to Enterprise Computing |<blockquote>David S. Frankel |<blockquote>模型驱动架构 |&#x2605;&#x2605;&#x2605;&#x2606;
 *                             |<blockquote>王威,李辉,李伟 |<blockquote>Eclipse RCP技术内幕 |&#x2605;&#x2605;&#x2605;
@@ -191,7 +188,6 @@ __*Tools*__ |
 *                             |子柳                   |淘宝技术这十年
 *                             |蒋鑫                   |Git权威指南
 *                             |唐宏,秦润锋,范均伦       |开源云OpenStack技术指南
-*                             |徳丸浩 著;赵文,刘斌 译   |Web应用安全权威指南
 
 
 # 6. Training
