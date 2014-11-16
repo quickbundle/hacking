@@ -19,7 +19,7 @@
 - [2. Old School \[optional\] \(20)](#2-old-school-optional-20)
 - [3. Key Papers](#3-key-papers)
 - [4. Cultrue & Industry \(14)](#4-cultrue--industry-14)
-- [5. Applied Technology \(12)](#5-applied-technology-12)
+- [5. Applied Technology \(13)](#5-applied-technology-13)
 - [6. Training](#6-training)
 
 >Have read *
@@ -171,12 +171,13 @@ __*Industry*__ |
 * A Brief History of Time     |Stephen Hawking       |时间简史
 * The Uniserse in a Nutshell  |Stephen Hawking       |果壳中的宇宙
 
-# 5. Applied Technology \(12)
+# 5. Applied Technology \(13)
   NAME                        |AUTHOR                |CN_NAME                   |REVIEW                    
 ------------------------------|----------------------|--------------------------|--------------------------
 __*Language*__ |
 * <blockquote>Ruby Programming |<blockquote>高桥征义,后藤裕藏 ||&#x2605;&#x2605;&#x2605;&#x2605;&#x2605; 
 *                             |<blockquote>许式伟     |<blockquote>Go语言编程 |&#x2605;&#x2605;&#x2605;
+* <blockquote>Head First Python |<blockquote>Paul Barry ||&#x2605;&#x2605;&#x2605;&#x2605;
 *                             |陈儒                   |Python源代码剖析
 *                             |周志明                 |深入理解Java虚拟机
 __*Tools*__ |
