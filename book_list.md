@@ -188,7 +188,7 @@ __*Tools*__ |
 *                             |<blockquote>刘刚       |<blockquote>Hadoop应用开发技术详解|&#x2605;&#x2606;
 *                             |子柳                   |淘宝技术这十年
 *                             |蒋鑫                   |Git权威指南
-*                             |唐宏,秦润锋,范均伦       |开源云OpenStack技术指南
+* OpenStack Cloud Computing Cookbook 2nd, 2014 |Kevin Jackson, Cody Bunch著; 黄凯, 杜玉杰 译| OpenStack云计算实战手册
 
 
 # 6. Training
