@@ -168,7 +168,7 @@ __*Software Engineering*__ |
 * <blockquote>Continuous Integration: Improving Software and Reducing Risk |<blockquote>Paul M. Duvall... |<blockquote>持续集成: 软件质量改进和风险降低之道 |&#x2605;&#x2605;&#x2605;&#x2606;
 __*Industry*__ |
 * Don't Make Me Think         |Steve Krug...         |点石成金: 访客至上的网页设计秘笈
-* A Brief History of Time     |Stephen Hawking       |时间简史
+* A Brief History of Time     |Stephen Hawking       |时间简史 |&#x2605;&#x2605;&#x2605;&#x2605;&#x2605;
 * The Uniserse in a Nutshell  |Stephen Hawking       |果壳中的宇宙
 
 # 5. Applied Technology \(13)
