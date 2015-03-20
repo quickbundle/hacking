@@ -16,7 +16,7 @@
 [-]==========================================================================[-]
 
 - [1. Old School \[required\] \(20)](#1-old-school-required-20)
-- [2. Old School \[optional\] \(20)](#2-old-school-optional-20)
+- [2. Old School \[optional\] \(23)](#2-old-school-optional-23)
 - [3. Key Papers](#3-key-papers)
 - [4. Cultrue & Industry \(14)](#4-cultrue--industry-14)
 - [5. Applied Technology \(13)](#5-applied-technology-13)
@@ -54,7 +54,7 @@ __*Database*__ |
 * Transactional Information Systems: Theory, Algorithms, and the Practice of Concurrency Control and Recovery, 2001 |Gerhard Weikum, Gottfried Vossen
 * Principles of Transaction Processing 2nd, 2009 |Philip A. Bernstein, Eric Newcomer
 
-# 2. Old School [optional] \(20)
+# 2. Old School [optional] \(23)
   NAME                        |AUTHOR                |CN_NAME                   |REVIEW                    
 ------------------------------|----------------------|--------------------------|--------------------------
 __*CS Basic*__ |
@@ -67,6 +67,9 @@ __*Security*__ |
 * The Shellcoder's Handbook: Discovering and Exploiting Security Holes, 2007|Chris Anley, John Heasman, Felix Lindner, Gerardo Richarte
 * Hacking: The Art of Exploitation 2nd, 2008|Jon Erickson
 * A Bug Hunter's Diary: A Guided Tour Through the Wilds of Software Security, 2011|Tobias Klein
+* Android Hacker's Handbook, 2014|Joshua J. Drake, Zach Lanier, Collin Mulliner, Pau Oliva Fora, Stephen A. Ridley, Georg Wicherski 
+* Moving Target Defense: Creating Asymmetric Uncertainty for Cyber Threats, 2011 |Sushil Jajodia, Anup K. Ghosh, Vipin Swarup, Cliff Wang, X. Sean Wang
+* Moving Target Defense II: Application of Game Theory and Adversarial Modeling, 2012| Sushil Jajodia, Anup K. Ghosh, V.S. Subrahmanian, Vipin Swarup, Cliff Wang, X. Sean Wang
 __*Engineering & AI*__ |
 * Analysis Patterns: Reusable Object Models, 1996 |Martin Flower |分析模式
 * Programming Pearls 2nd, 1999 |Jon Bentley          |编程珠玑

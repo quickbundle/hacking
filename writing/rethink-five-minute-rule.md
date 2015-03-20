@@ -2,6 +2,22 @@
 
 for 《中国计算机学会通讯》
 
+#解释5分钟原则
+
+#从<https://pcpartpicker.com/trends/>分析
+
+DDR3-1600 204-pin SODIMM 2x8GB
+140/(16.0) = $8.75/G
+
+SSD - 512GB
+360/(512.0) = $0.703125/G
+
+Hard Drive - 4TB - 7200 RPM
+260/(4.0*1024) = $0.0634765625/G
+
+#架构的演化
+
+
 >以下摘录自Jim Gray《Transaction Processing》1992版
 
 ##Transaction Processing p56-57
@@ -27,3 +43,4 @@ The *disk-are-dead* view, on the other hand, predicts that future memory hierarc
 The disk-are-dead group believes that electronic memories will be structured as a hierarchy, with block-addressed electronic memories replacing disks. These RAM disk will have battery or tape backup to make them non-volatile and will be large enough to hold all the active data. New information will only arrive via the network or through real-world interfaces such as terminals, sensors, and so forth. Magnetic memory devices will be needed only for logging and archiving. Both operations are sequential and often asynchronous. The primary requirement will be very high transfer rates. Magnetic or magneto-optical tapes would be the ideal devices; they have high capacity, high transfer rates, and low cost/byte. It is possible that these tapes will be removable optical disks, but in this environment they will be treated as fundamentally sequential devices.
 
 The conventional model, disks forver, is used here if only because is subsumes the no-disk case. It asks for fast sequential transfers between main memory and disks and requires fast selective access to single objects on disk.
+
