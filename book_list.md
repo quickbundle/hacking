@@ -31,12 +31,12 @@
 ------------------------------|----------------------|--------------------------|--------------------------
 __*CS Basic*__ |
 * <blockquote>Code: The Hidden Language of Computer Hardware and Software, 2000 |<blockquote>Charles Petzold |<blockquote>编码:隐匿在计算机软硬件背后的语言 |&#x2605;&#x2605;&#x2605;&#x2605;&#x2605;
-* Structure and Interpretation of Computer Programs 2nd, 1996 |Harold Abelson, Gerald Jay Sussman, Julie Sussman |计算机程序的构造与解释
+* Structure and Interpretation of Computer Programs 2nd, 1996 |Harold Abelson, Gerald Jay Sussman, Julie Sussman |计算机程序的构造与解释 |*MIT Electrical Engineering and Computer Science*
 * <blockquote>Computer Networks 5th, 2010 |<blockquote>Andrew S. Tanenbaum, David J. Wetherall |<blockquote>计算机网络 |&#x2605;&#x2605;&#x2605;&#x2605;&#x2605;
 * Operation System Concepts 9th, 2012 |Abraham Silberschatz, Peter B. Galvin, Greg Gagne |操作系统概念 
 * Modern Operating Systems 4th, 2014 |Andrew S. Tanenbaum, Herbert Bos |现代操作系统              
 * Compilers: Principles, Techniques, and Tools 2nd, 2006 |Alfred V. Aho, Monica S. Lam, Ravi Sethi, Jeffrey D. Ullman |编译原理
-* Introduction to Algorithms 3rd, 2009 |Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, Clifford Stein|算法导论
+* Introduction to Algorithms 3rd, 2009 |Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, Clifford Stein|算法导论 |*MIT Electrical Engineering and Computer Science*
 * Discrete Mathematics and Its Applications, 2011 |Kenneth H. Rosen |离散数学及其应用
 __*Security*__ |
 * <blockquote>Applied Cryptography: Protocols, Algorithms, and Source Code in C 2nd, 1996 |<blockquote>Bruce Schneier | 应用密码学: 协议、算法与C源程序|&#x2605;&#x2605;&#x2605;&#x2605;&#x2605; 
@@ -50,16 +50,16 @@ __*Language & OS & Engineering*__ |
 * Understanding the Linux Kernel 3rd, 2005 |Daniel P. Bovet, Marco Cesati |深入理解Linux内核
 * Linux Kernel Development 3rd, 2010 |Robert Love |Linux内核设计与实现
 __*Database*__ |
-* ==> Transaction Processing: Concepts and Techniques, 1992 |Jim Gray, Andreas Reuter
-* Transactional Information Systems: Theory, Algorithms, and the Practice of Concurrency Control and Recovery, 2001 |Gerhard Weikum, Gottfried Vossen
-* Principles of Transaction Processing 2nd, 2009 |Philip A. Bernstein, Eric Newcomer
+* ==> Transaction Processing: Concepts and Techniques, 1992 |Jim Gray, Andreas Reuter | |*The Morgan Kaufmann Series in Data Management Systems*
+* Transactional Information Systems: Theory, Algorithms, and the Practice of Concurrency Control and Recovery, 2001 |Gerhard Weikum, Gottfried Vossen | |*The Morgan Kaufmann Series in Data Management Systems*
+* Principles of Transaction Processing 2nd, 2009 |Philip A. Bernstein, Eric Newcomer | |*The Morgan Kaufmann Series in Data Management*
 
 # 2. Old School [optional] \(23)
   NAME                        |AUTHOR                |CN_NAME                   |REVIEW                    
 ------------------------------|----------------------|--------------------------|--------------------------
 __*CS Basic*__ |
 * The Art of Computer Programming Vol. 1-4A, 1968-2011 |Donald E. Knuth   |计算机程序设计艺术
-* TCP/IP Illustrated, Volume 1: The Protocols 2nd, 2011 |Kevin R. Fall, W. Richard Stevens |TCP/IP详解 卷1：协议
+* TCP/IP Illustrated, Volume 1: The Protocols 2nd, 2011 |Kevin R. Fall, W. Richard Stevens |TCP/IP详解 卷1：协议 |*Addison-Wesley Professional Computing Series*
 * TCP/IP Illustrated, Volumn 2: The Implementation, 1993 |W. Richard Stevens |TCP/IP详解 卷2：实现
 * TCP/IP Illustrated, Volumn 3: TCP for Transactions, HTTP, NNTP, and the UNIX Domain Protocols, 1996 |W. Richard Stevens |TCP/IP详解 卷3：TCP事务协议、HTTP、NNTP和UNIX域协议
 __*Security*__ |
@@ -68,22 +68,22 @@ __*Security*__ |
 * Hacking: The Art of Exploitation 2nd, 2008|Jon Erickson
 * A Bug Hunter's Diary: A Guided Tour Through the Wilds of Software Security, 2011|Tobias Klein
 * Android Hacker's Handbook, 2014|Joshua J. Drake, Zach Lanier, Collin Mulliner, Pau Oliva Fora, Stephen A. Ridley, Georg Wicherski 
-* Moving Target Defense: Creating Asymmetric Uncertainty for Cyber Threats, 2011 |Sushil Jajodia, Anup K. Ghosh, Vipin Swarup, Cliff Wang, X. Sean Wang
-* Moving Target Defense II: Application of Game Theory and Adversarial Modeling, 2012| Sushil Jajodia, Anup K. Ghosh, V.S. Subrahmanian, Vipin Swarup, Cliff Wang, X. Sean Wang
+* Moving Target Defense: Creating Asymmetric Uncertainty for Cyber Threats, 2011 |Sushil Jajodia, Anup K. Ghosh, Vipin Swarup, Cliff Wang, X. Sean Wang | |*Advances in Information Security*
+* Moving Target Defense II: Application of Game Theory and Adversarial Modeling, 2012| Sushil Jajodia, Anup K. Ghosh, V.S. Subrahmanian, Vipin Swarup, Cliff Wang, X. Sean Wang | |*Advances in Information Security*
 __*Engineering & AI*__ |
 * Analysis Patterns: Reusable Object Models, 1996 |Martin Flower |分析模式
 * Programming Pearls 2nd, 1999 |Jon Bentley          |编程珠玑
 * Refactoring: Improving the Design of Existing Code, 1999 |Martin Flower, Kent Beck, John Brant, William Opdyke, Don Roberts|重构
 * Machine Learning, 1997      |Tom M. Mitchell       |机器学习
 * Introduction to Data Mining, 2005 |Pang-Ning Tan, Michael Steinbach, Vipin Kumar|数据挖掘导论
-* Data Mining: Practical Machine Learning Tools and Techniques 3rd, 2011 |Ian H. Witten, Eibe Frank, Mark A. Hall |数据挖掘: 实用机器学习技术
+* Data Mining: Practical Machine Learning Tools and Techniques 3rd, 2011 |Ian H. Witten, Eibe Frank, Mark A. Hall |数据挖掘: 实用机器学习技术 |*The Morgan Kaufmann Series in Data Management Systems*
 * Database Management Systems 3rd, 2002 |Raghu Ramakrishnan, Johannes Gehrke
 __*Think in Language*__ |
 * Think in C++ Vol. 1,2, 2000,2003 |Bruce Echel, Chuck Allison |C++编程思想
 * <blockquote>Think in Java 4th, 2006 |<blockquote>Bruce Echel |<blockquote>Java编程思想|&#x2605;&#x2605;&#x2605;&#x2605;&#x2606; 
 * Code Complete 2nd, 2004     |Steve McConnell       |代码大全
 * Beautiful Code: Leading Programmers Explain How They Think, 2007 |Andy Oram, Greg Wilson |代码之美
-* Domain-Specific Languages, 2010 |Martin Flower         |领域特定语言
+* Domain-Specific Languages, 2010 |Martin Flower         |领域特定语言 |*Addison-Wesley Signature Series*
 
 # 3. Key Papers
 ###__*Cryptography*__
