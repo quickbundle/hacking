@@ -313,6 +313,7 @@ userid  |username
 2       |‘Bob’
 ***
 >**Figure4:** Part of phpBB’s schema with annotations to secure private messages. Only the sender and receiver may see the private message. An attacker that gains complete access to phpBB and the DBMS can access private messages of only currently active users.
+
 ####4.2 Key Chaining
 Each principal (i.e., each instance of each principal type) is associated with a secret, randomly chosen key. If principal *B* speaks for principal *A* (as a result of some SPEAKS_FOR annotation), then principal *A*’s key is encrypted using principal *B*’s key, and stored as a row in the special *access_keys* table in the database. This allows principal *B* to gain access to principal *A*’s key. For example, in Figure 4, to give users 1 and 2 access to message 5, the key of msg 5 is encrypted with the key of user 1, and also separately encrypted with the key of user 2.
 
