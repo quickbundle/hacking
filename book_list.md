@@ -18,8 +18,8 @@
 - [1. Old School \[required\] \(20)](#1-old-school-required-20)
 - [2. Old School \[optional\] \(23)](#2-old-school-optional-23)
 - [3. Key Papers](#3-key-papers)
-- [4. Cultrue & Industry \(14)](#4-cultrue--industry-14)
-- [5. Applied Technology \(13)](#5-applied-technology-13)
+- [4. Cultrue & Industry](#4-cultrue--industry)
+- [5. Applied Technology](#5-applied-technology)
 - [6. Training](#6-training)
 
 >Have read *
@@ -41,8 +41,8 @@ __*CS Basic*__ |
 __*Security*__ |
 * <blockquote>Applied Cryptography: Protocols, Algorithms, and Source Code in C 2nd, 1996 |<blockquote>Bruce Schneier | 应用密码学: 协议、算法与C源程序|&#x2605;&#x2605;&#x2605;&#x2605;&#x2605; 
 * ==> Modern Cryptography: Theory and Practice, 2003 |Wenbo Mao |现代密码学: 理论与实践
-* Security Engineering: A Guide to Building Dependable Distributed Systems 2nd, 2008 |Ross J. Anderson
-* Cryptography Engineering: Design Principles and Practical Applications, 2010|Niels Ferguson, Bruce Schneier, Tadayoshi Kohno 
+* ==> Security Engineering: A Guide to Building Dependable Distributed Systems 2nd, 2008 |Ross J. Anderson
+* ==> Cryptography Engineering: Design Principles and Practical Applications, 2010|Niels Ferguson, Bruce Schneier, Tadayoshi Kohno 
 * [Phrack #1-#68](http://www.phrack.org/archives/issues/), 1985-2012 |
 __*Language & OS & Engineering*__ |
 * <blockquote>The C Programming Language 2nd, 1988 |<blockquote>Brian W. Kernighan, Dennis M. Ritchie |<blockquote>C程序设计语言 |&#x2605;&#x2605;&#x2605;&#x2605;&#x2605;
@@ -83,7 +83,7 @@ __*Think in Language*__ |
 * <blockquote>Think in Java 4th, 2006 |<blockquote>Bruce Echel |<blockquote>Java编程思想|&#x2605;&#x2605;&#x2605;&#x2605;&#x2606; 
 * Code Complete 2nd, 2004     |Steve McConnell       |代码大全
 * Beautiful Code: Leading Programmers Explain How They Think, 2007 |Andy Oram, Greg Wilson |代码之美
-* Domain-Specific Languages, 2010 |Martin Flower         |领域特定语言 |*Addison-Wesley Signature Series*
+* <blockquote>Domain-Specific Languages, 2010 |<blockquote>Martin Flower         |<blockquote>领域特定语言 |*Addison-Wesley Signature Series* &#x2605;&#x2605;&#x2605;&#x2605;&#x2606;
 
 # 3. Key Papers
 ###__*Cryptography*__
@@ -98,7 +98,7 @@ __*Think in Language*__ |
 
 [Transport Layer Security (TLS)](http://en.wikipedia.org/wiki/Transport_Layer_Security) | 1999
 
-###__*Data Security Engineering*__
+###__*Cryptography Engineering*__
 > [CryptDB: Protecting Confidentiality with Encrypted Query Processing](http://web.mit.edu/ralucap/www/CryptDB-sosp11.pdf) | Raluca Ada Popa...
 
 > [Building web applications on top of encrypted data using Mylar](http://web.mit.edu/ralucap/www/mylar.pdf) | Raluca Ada Popa...
@@ -107,10 +107,12 @@ __*Think in Language*__ |
 
 [Reusable Garbled Circuits and Succinct Functional Encryption](http://eprint.iacr.org/2012/733.pdf) | Shafi Goldwasser...
 
-[Shielding Applications from an Untrusted Cloud with Haven](https://www.usenix.org/system/files/conference/osdi14/osdi14-paper-baumann.pdf) | Andrew Baumann, Marcus Peinado, and Galen Hunt, Microsoft Research
-
 [Crypton: Zero-Knowledge Application Framework](https://crypton.io/crypton.pdf) | Cam Pedersen, David Dahl
 
+###__*Security Engineering*__
+> [Innovative Instructions and Software Model for Isolated Execution](https://software.intel.com/sites/default/files/article/413936/hasp-2013-innovative-instructions-and-software-model-for-isolated-execution.pdf) | Frank McKeen, Ilya Alexandrovich, Alex Berenzon, Carlos Rozas, Hisham Shafi, Vedvyas Shanbhogue and Uday Savagaonkar, Intel Corporation
+
+[Shielding Applications from an Untrusted Cloud with Haven](https://www.usenix.org/system/files/conference/osdi14/osdi14-paper-baumann.pdf) | Andrew Baumann, Marcus Peinado, and Galen Hunt, Microsoft Research
 
 ###__*Traditional Database Engine*__
 [The Programmer as Navigator](http://www.jdl.ac.cn/turing/pdf/p653-bachman.pdf) | Charles W. Bachman, 1973
@@ -153,7 +155,7 @@ Paxos: [The Part-Time Parliament](http://research.microsoft.com/en-us/um/people/
 [Requirements for Science Data Bases and SciDB](http://www-db.cs.wisc.edu/cidr/cidr2009/Paper_26.pdf) | Michael Stonebraker...
 
 
-# 4. Cultrue & Industry \(14)
+# 4. Cultrue & Industry
   NAME                        |AUTHOR                |CN_NAME                   |REVIEW                    
 ------------------------------|----------------------|--------------------------|--------------------------
 __*Culture*__ |
@@ -170,18 +172,17 @@ __*Software Engineering*__ |
 * The Pragmatic Programmer: from Journeyman to Master |Andrew Hunt... |程序员修炼之道-从小工到专家
 * <blockquote>Continuous Integration: Improving Software and Reducing Risk |<blockquote>Paul M. Duvall... |<blockquote>持续集成: 软件质量改进和风险降低之道 |&#x2605;&#x2605;&#x2605;&#x2606;
 __*Industry*__ |
-* Don't Make Me Think         |Steve Krug...         |点石成金: 访客至上的网页设计秘笈
-* A Brief History of Time     |Stephen Hawking       |时间简史 |&#x2605;&#x2605;&#x2605;&#x2605;&#x2605;
-* The Uniserse in a Nutshell  |Stephen Hawking       |果壳中的宇宙
+* ==> Don't Make Me Think         |Steve Krug...         |点石成金: 访客至上的网页设计秘笈
+* <blockquote>A Brief History of Time     |<blockquote>Stephen Hawking       |<blockquote>时间简史 |&#x2605;&#x2605;&#x2605;&#x2605;&#x2605;
+* ==> The Uniserse in a Nutshell  |Stephen Hawking       |果壳中的宇宙
 
-# 5. Applied Technology \(13)
+# 5. Applied Technology
   NAME                        |AUTHOR                |CN_NAME                   |REVIEW                    
 ------------------------------|----------------------|--------------------------|--------------------------
 __*Language*__ |
 * <blockquote>Ruby Programming |<blockquote>高桥征义,后藤裕藏 ||&#x2605;&#x2605;&#x2605;&#x2605;&#x2605; 
 *                             |<blockquote>许式伟     |<blockquote>Go语言编程 |&#x2605;&#x2605;&#x2605;
 * <blockquote>Head First Python |<blockquote>Paul Barry ||&#x2605;&#x2605;&#x2605;&#x2605;
-*                             |陈儒                   |Python源代码剖析
 *                             |周志明                 |深入理解Java虚拟机
 __*Tools*__ |
 * HTTP: The Definitive Guide, 2002 |David Gourley, Brian Totty, Marjorie Sayer, Anshu Aggarwal, Sailu Reddy |HTTP权威指南
@@ -190,8 +191,15 @@ __*Tools*__ |
 *                             |<blockquote>王威,李辉,李伟 |<blockquote>Eclipse RCP技术内幕 |&#x2605;&#x2605;&#x2605;
 *                             |<blockquote>刘刚       |<blockquote>Hadoop应用开发技术详解|&#x2605;&#x2606;
 *                             |子柳                   |淘宝技术这十年
-*                             |蒋鑫                   |Git权威指南
-* OpenStack Cloud Computing Cookbook 2nd, 2014 |Kevin Jackson, Cody Bunch著; 黄凯, 杜玉杰 译| OpenStack云计算实战手册
+*                             |李林锋                 |Netty权威指南 2nd, 2015
+* <blockquote>Event-Driven Programming: Introduction, Tutorial, History, 2006 |<blockquote>Stephen Ferg | |&#x2605;&#x2605;&#x2605;&#x2605; 
+__*Diagram*__ |
+*                             |<blockquote>上野·宣    |<blockquote>图解HTTP       |&#x2605;&#x2605;&#x2605;&#x2605;&#x2606; 
+*                             |<blockquote>结城浩     |<blockquote>图解密码技术    |&#x2605;&#x2605;&#x2605;&#x2605;&#x2606;
+*                             |三轮贤一               |图解网络硬件
+*                             |竹下隆史, 村山公保, 荒井透, 苅田幸雄 |图解TCP/IP 5th
+*                             |杉山将                 |图解机器学习
+*                             |小川卓                 |图解网站分析：让流量倍增的网站优化方法
 
 
 # 6. Training
@@ -199,6 +207,8 @@ __*Tools*__ |
 <https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/>
 
 ###__*Security*__
+<http://opensecurityarchitecture.org/>
+
 <http://opensecuritytraining.info/Training.html>
 
 <https://github.com/quickbundle/cryptdb>
@@ -210,13 +220,6 @@ My Open Source Project, java web application with security harden]ing (2014):
 <https://github.com/quickbundle/javasec>
 
 ==> CipherGateway
-
-###__*Database*__
-<http://db.csail.mit.edu/projects/cstore/>
-
-My Open Source Project, a database engine (2014):  
-<http://mesadb.com/>  
-<https://github.com/mesadb>
 
 ###__*Application*__
 My Open Source Project, best practice of java web application & code generator (2005 - 2014):  
