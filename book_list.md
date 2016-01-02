@@ -22,7 +22,10 @@
 - [5. Applied Technology](#5-applied-technology)
 - [6. Training](#6-training)
 
->Have read *
+#### Symbol Description
+>Have read
+
+==> Reading
 
 # 1. Old School [required] \(20)
 ####we came a long way...
@@ -98,7 +101,7 @@ __*Think in Language*__ |
 
 [Transport Layer Security (TLS)](http://en.wikipedia.org/wiki/Transport_Layer_Security) | 1999
 
-###__*Cryptography Engineering*__
+###__*Cryptographic engineering*__
 > [CryptDB: Protecting Confidentiality with Encrypted Query Processing](http://web.mit.edu/ralucap/www/CryptDB-sosp11.pdf) | Raluca Ada Popa...
 
 > [Building web applications on top of encrypted data using Mylar](http://web.mit.edu/ralucap/www/mylar.pdf) | Raluca Ada Popa...
