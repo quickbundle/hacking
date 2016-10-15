@@ -18,9 +18,10 @@
 - [1. Old School \[required\] \(20)](#1-old-school-required-20)
 - [2. Old School \[optional\] \(23)](#2-old-school-optional-23)
 - [3. Key Papers](#3-key-papers)
-- [4. Cultrue & Industry](#4-cultrue--industry)
-- [5. Applied Technology](#5-applied-technology)
-- [6. Training](#6-training)
+- [4. Applied Technology](#5-applied-technology)
+- [5. Business Management](#5-business-management)
+- [6. Cultrue & Industry](#4-cultrue--industry)
+- [7. Training](#7-training)
 
 #### Symbol Description
 >Have read
